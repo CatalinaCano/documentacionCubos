@@ -1,0 +1,1463 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "NALSANI_DWH",
+        "connectionString": "Provider=SQLNCLI11.1;Persist Security Info=False;User ID=consulta_ssrs;Initial Catalog=NALSANI_DWH;Data Source=10.50.80.167;Initial File Name=;Server SPN=",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "D  Condición de Pago",
+        "columns": [
+          {
+            "name": "SkCondicionPago",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCondicionPago",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Condición de Pago",
+            "dataType": "string",
+            "sourceColumn": "IdCondicionPago",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Condición de Pago",
+            "dataType": "string",
+            "sourceColumn": "DsCondicionPago",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimCondicionPago",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimCondicionPago].* FROM [dbo].[DimCondicionPago] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimCondicionPago].* FROM [dbo].[DimCondicionPago] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCondicionPago"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Compañía",
+        "columns": [
+          {
+            "name": "SkEmpresa",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEmpresa",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Compañía",
+            "dataType": "string",
+            "sourceColumn": "IdEmpresa",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Compañía",
+            "dataType": "string",
+            "sourceColumn": "NmEmpresa",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimEmpresa",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimEmpresa].* FROM [dbo].[DimEmpresa] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimEmpresa].* FROM [dbo].[DimEmpresa] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimEmpresa"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Moneda",
+        "columns": [
+          {
+            "name": "SkMoneda",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMoneda",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Moneda",
+            "dataType": "string",
+            "sourceColumn": "IdMoneda",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Moneda",
+            "dataType": "string",
+            "sourceColumn": "NmMoneda",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimMoneda",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimMoneda].* FROM [dbo].[DimMoneda] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimMoneda].* FROM [dbo].[DimMoneda] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimMoneda"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Tipo de Transacción",
+        "columns": [
+          {
+            "name": "SkTipoTransaccion",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTipoTransaccion",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Tipo de Transacción",
+            "dataType": "string",
+            "sourceColumn": "IdTipoTransaccion",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Tipo de Transacción",
+            "dataType": "string",
+            "sourceColumn": "NmTipoTransaccion",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimTipoTransaccion",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimTipoTransaccion].* FROM [dbo].[DimTipoTransaccion] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimTipoTransaccion].* FROM [dbo].[DimTipoTransaccion] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimTipoTransaccion"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Centro de Costo",
+        "columns": [
+          {
+            "name": "SkCentroCosto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCentroCosto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Centro de Costo",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Centro de Costo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Canal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Gerencia",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Gerencia",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Centro de Costo",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT [dbo].[VwDimCentroCosto].[SkCentroCosto],",
+                "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código del Centro de Costo],' - ',[dbo].[VwDimCentroCosto].[Centro de Costo]) AS 'Centro de Costo',",
+                "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código Canal],' - ',[dbo].[VwDimCentroCosto].[Canal]) AS 'Canal',",
+                "\t   CONCAT(  [dbo].[VwDimCentroCosto].[Código Gerencia],' - ',[dbo].[VwDimCentroCosto].[Gerencia]) AS 'Gerencia'",
+                " FROM [dbo].[VwDimCentroCosto]"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[VwDimCentroCosto].[SkCentroCosto],",
+                  "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código del Centro de Costo],' - ',[dbo].[VwDimCentroCosto].[Centro de Costo]) AS 'Centro de Costo',",
+                  "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código Canal],' - ',[dbo].[VwDimCentroCosto].[Canal]) AS 'Canal',",
+                  "\t   CONCAT(  [dbo].[VwDimCentroCosto].[Código Gerencia],' - ',[dbo].[VwDimCentroCosto].[Gerencia]) AS 'Gerencia'",
+                  " FROM [dbo].[VwDimCentroCosto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Centro Costo",
+            "levels": [
+              {
+                "name": "Gerencia",
+                "ordinal": 1,
+                "column": "Gerencia"
+              },
+              {
+                "name": "Canal",
+                "ordinal": 2,
+                "column": "Canal"
+              },
+              {
+                "name": "Centro de Costo",
+                "ordinal": 0,
+                "column": "Centro de Costo"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT [dbo].[VwDimCentroCosto].[SkCentroCosto],",
+              "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código del Centro de Costo],' - ',[dbo].[VwDimCentroCosto].[Centro de Costo]) AS 'Centro de Costo',",
+              "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código Canal],' - ',[dbo].[VwDimCentroCosto].[Canal]) AS 'Canal',",
+              "\t   CONCAT(  [dbo].[VwDimCentroCosto].[Código Gerencia],' - ',[dbo].[VwDimCentroCosto].[Gerencia]) AS 'Gerencia'",
+              " FROM [dbo].[VwDimCentroCosto]"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VwDimCentroCosto"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[VwDimCentroCosto].[SkCentroCosto],",
+              "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código del Centro de Costo],' - ',[dbo].[VwDimCentroCosto].[Centro de Costo]) AS 'Centro de Costo',",
+              "\t   CONCAT( [dbo].[VwDimCentroCosto].[Código Canal],' - ',[dbo].[VwDimCentroCosto].[Canal]) AS 'Canal',",
+              "\t   CONCAT(  [dbo].[VwDimCentroCosto].[Código Gerencia],' - ',[dbo].[VwDimCentroCosto].[Gerencia]) AS 'Gerencia'",
+              " FROM [dbo].[VwDimCentroCosto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Tiempo",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "SkFecha",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFecha",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Fecha",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Código del Día",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Día",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día de la Semana",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día de la Semana",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semana del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semana del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Trimestre del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Trimestre del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Trimestre del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Trimestre del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Semestre del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Semestre del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semestre del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semestre del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Festivos",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Festivos",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Totto Loco",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Totto Loco",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Temporada",
+            "dataType": "string",
+            "sourceColumn": "Temporada",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": ".Mes Fiscal",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "FORMAT('D  Tiempo'[Código del Mes del Año Fiscal],\"00\")& \" \"&'D  Tiempo'[Mes del Año Fiscal]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "VwTiempo",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Fiscal",
+            "levels": [
+              {
+                "name": "Semestre Fiscal",
+                "ordinal": 1,
+                "column": "Semestre del Año Fiscal"
+              },
+              {
+                "name": "Año Fiscal",
+                "ordinal": 0,
+                "column": "Código del Año Fiscal"
+              },
+              {
+                "name": "Trimestre Fiscal",
+                "ordinal": 2,
+                "column": "Trimestre del Año Fiscal"
+              },
+              {
+                "name": "Semana Fiscal",
+                "ordinal": 4,
+                "column": "Semana del Año Fiscal"
+              },
+              {
+                "name": "Día",
+                "ordinal": 6,
+                "column": "Día"
+              },
+              {
+                "name": "Día de la Semana",
+                "ordinal": 5,
+                "column": "Día de la Semana"
+              },
+              {
+                "name": ".Mes Fiscal",
+                "ordinal": 3,
+                "column": ".Mes Fiscal"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VwTiempo"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Geografía",
+        "columns": [
+          {
+            "name": "SkGeografia",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkGeografia",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Geografía",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdGeografia",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdCiudad",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "NmCiudad",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Departamento",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdDepartamento",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Departamento",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "NmDepartamento",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código País",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdPais",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "País",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "NmPais",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Postal",
+            "dataType": "string",
+            "sourceColumn": "CodigoPostal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Población",
+            "dataType": "double",
+            "sourceColumn": "Poblacion",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimGeografia",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimGeografia].* FROM [dbo].[DimGeografia] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Geografía",
+            "levels": [
+              {
+                "name": "País",
+                "ordinal": 0,
+                "column": "País"
+              },
+              {
+                "name": "Departamento",
+                "ordinal": 1,
+                "column": "Departamento"
+              },
+              {
+                "name": "Ciudad",
+                "ordinal": 2,
+                "column": "Ciudad"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimGeografia].* FROM [dbo].[DimGeografia] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimGeografia"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "M  Cuentas por Pagar",
+        "columns": [
+          {
+            "name": "SkFactFinancieraCxP",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFactFinancieraCxP",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "SkFechaCxP",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaCxP",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkEmpresa",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEmpresa",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkCentroCosto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCentroCosto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkProveedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProveedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkMoneda",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMoneda",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkTipoTransaccion",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTipoTransaccion",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkCondicionPago",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCondicionPago",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkCuentaContable",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCuentaContable",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Fecha Cuentas por Pagar",
+            "dataType": "dateTime",
+            "sourceColumn": "DtCxP",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Fecha Radicado Factura",
+            "dataType": "dateTime",
+            "sourceColumn": "DtFacturaRadicado",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Fecha Finalización",
+            "dataType": "dateTime",
+            "sourceColumn": "DtFinalizacion",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Fecha Radicado Proveedor",
+            "dataType": "dateTime",
+            "sourceColumn": "DtRadicadoProveedor",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Fecha Vencimiento",
+            "dataType": "dateTime",
+            "sourceColumn": "DtVencimiento",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Número Asiento Contable",
+            "dataType": "string",
+            "sourceColumn": "NumAsientoContable",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Número de Factura",
+            "dataType": "string",
+            "sourceColumn": "NumFactura",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Valor Pendiente",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ValorPendiente",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Débito",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ValorDebito",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Crédito",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ValorCredito",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Días Vencidos",
+            "dataType": "int64",
+            "sourceColumn": "DiasVencidos",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Dias NIIF",
+            "dataType": "int64",
+            "sourceColumn": "DiasNIIF",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sin Vencer",
+            "dataType": "double",
+            "sourceColumn": "SinVencer",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Entre 1 y 30 Días",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Entre0y30Dias",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Entre 31 y 60 Días",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Entre31y60Dias",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Entre 61 y 90 Días",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Entre61y90Dias",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Más 90 Días",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Mas90Dias",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FactFinancieraCxP",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[FactFinancieraCxP].* FROM [dbo].[FactFinancieraCxP] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Valor Pendiente (CxP)",
+            "expression": " SUM('M  Cuentas por Pagar'[Valor Pendiente])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Débito (CXP)",
+            "expression": " SUM('M  Cuentas por Pagar'[Valor Débito])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Crédito (CXP)",
+            "expression": " SUM('M  Cuentas por Pagar'[Valor Crédito])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Vencido entre 1 y 30 días (CXP)",
+            "expression": " SUM('M  Cuentas por Pagar'[Entre 1 y 30 Días])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Valor Vencido entre 31 y 60 días (CXP)",
+            "expression": " SUM('M  Cuentas por Pagar'[Entre 31 y 60 Días])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Vencido entre 61 y 90 días (CXP)",
+            "expression": " SUM('M  Cuentas por Pagar'[Entre 31 y 60 Días])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Vencido más de 90 días (CXP)",
+            "expression": " SUM('M  Cuentas por Pagar'[Más 90 Días])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FactFinancieraCxP].* FROM [dbo].[FactFinancieraCxP] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactFinancieraCxP"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Cuentas Contables",
+        "columns": [
+          {
+            "name": "SkCuentaContable",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCuentaContable",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Clase",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Clase",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Grupo",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Grupo",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Cuenta",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Cuenta",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Subcuenta",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Subcuenta",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Cuenta Auxiliar",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Cuenta Auxiliar",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Código Cuenta Mayor",
+            "dataType": "string",
+            "sourceColumn": "Código Cuenta Mayor",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Código Clase",
+            "dataType": "string",
+            "sourceColumn": "Código Clase",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Código Grupo",
+            "dataType": "string",
+            "sourceColumn": "Código Grupo",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Código Subcuenta",
+            "dataType": "string",
+            "sourceColumn": "Código Subcuenta",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Código Cuenta Auxiliar",
+            "dataType": "string",
+            "sourceColumn": "Código Cuenta Auxiliar",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Naturaleza Cuenta",
+            "dataType": "string",
+            "sourceColumn": "Naturaleza Cuenta",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Tipo de Cuenta",
+            "dataType": "string",
+            "sourceColumn": "Tipo de Cuenta",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Categoría de la Cuenta",
+            "dataType": "string",
+            "sourceColumn": "Categoría de la Cuenta",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Clasificación de Gastos",
+            "dataType": "string",
+            "sourceColumn": "Clasificación de Gastos",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Cuentas Contables",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT  [SkCuentaContable],",
+                "--JERARQUIA",
+                "CONCAT([IdCuentaMayor],' - ',[DsCuentaMayor]) AS 'Clase',",
+                "CONCAT([IdSubCuenta1],' - ',[DsSubCuenta1]) AS 'Grupo',",
+                "CONCAT([IdSubCuenta2],' - ',[DsSubCuenta2]) AS 'Cuenta',",
+                "CONCAT([IdSubCuenta3],' - ',[DsSubCuenta3]) AS 'Subcuenta',",
+                "CONCAT([IdSubCuenta4],' - ',[DsSubCuenta4]) AS 'Cuenta Auxiliar',",
+                "",
+                "--ATRIBUTOS",
+                "[IdCuentaMayor]  AS 'Código Cuenta Mayor',",
+                "[IdSubCuenta1] AS 'Código Clase',",
+                "[IdSubCuenta2] AS 'Código Grupo',",
+                "[IdSubCuenta3] AS 'Código Subcuenta',",
+                "[IdSubCuenta4] AS 'Código Cuenta Auxiliar',",
+                "[NaturalezaCuenta] AS 'Naturaleza Cuenta',",
+                "[TipoCuenta] AS 'Tipo de Cuenta',",
+                "[CategoriaCuenta] AS 'Categoría de la Cuenta',",
+                "[ClasificacionGastos] AS 'Clasificación de Gastos'",
+                "  FROM [NALSANI_DWH].[dbo].[DimCuentasContables]"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkCuentaContable],",
+                  "--JERARQUIA",
+                  "CONCAT([IdCuentaMayor],' - ',[DsCuentaMayor]) AS 'Clase',",
+                  "CONCAT([IdSubCuenta1],' - ',[DsSubCuenta1]) AS 'Grupo',",
+                  "CONCAT([IdSubCuenta2],' - ',[DsSubCuenta2]) AS 'Cuenta',",
+                  "CONCAT([IdSubCuenta3],' - ',[DsSubCuenta3]) AS 'Subcuenta',",
+                  "CONCAT([IdSubCuenta4],' - ',[DsSubCuenta4]) AS 'Cuenta Auxiliar',",
+                  "",
+                  "--ATRIBUTOS",
+                  "[IdCuentaMayor]  AS 'Código Cuenta Mayor',",
+                  "[IdSubCuenta1] AS 'Código Clase',",
+                  "[IdSubCuenta2] AS 'Código Grupo',",
+                  "[IdSubCuenta3] AS 'Código Subcuenta',",
+                  "[IdSubCuenta4] AS 'Código Cuenta Auxiliar',",
+                  "[NaturalezaCuenta] AS 'Naturaleza Cuenta',",
+                  "[TipoCuenta] AS 'Tipo de Cuenta',",
+                  "[CategoriaCuenta] AS 'Categoría de la Cuenta',",
+                  "[ClasificacionGastos] AS 'Clasificación de Gastos'",
+                  "  FROM [NALSANI_DWH].[dbo].[DimCuentasContables]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Cuentas Contables",
+            "levels": [
+              {
+                "name": "Clase",
+                "ordinal": 0,
+                "column": "Clase"
+              },
+              {
+                "name": "Grupo",
+                "ordinal": 1,
+                "column": "Grupo"
+              },
+              {
+                "name": "Cuenta",
+                "ordinal": 2,
+                "column": "Cuenta"
+              },
+              {
+                "name": "Subcuenta",
+                "ordinal": 3,
+                "column": "Subcuenta"
+              },
+              {
+                "name": "Cuenta Auxiliar",
+                "ordinal": 4,
+                "column": "Cuenta Auxiliar"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT  [SkCuentaContable],",
+              "--JERARQUIA",
+              "CONCAT([IdCuentaMayor],' - ',[DsCuentaMayor]) AS 'Clase',",
+              "CONCAT([IdSubCuenta1],' - ',[DsSubCuenta1]) AS 'Grupo',",
+              "CONCAT([IdSubCuenta2],' - ',[DsSubCuenta2]) AS 'Cuenta',",
+              "CONCAT([IdSubCuenta3],' - ',[DsSubCuenta3]) AS 'Subcuenta',",
+              "CONCAT([IdSubCuenta4],' - ',[DsSubCuenta4]) AS 'Cuenta Auxiliar',",
+              "",
+              "--ATRIBUTOS",
+              "[IdCuentaMayor]  AS 'Código Cuenta Mayor',",
+              "[IdSubCuenta1] AS 'Código Clase',",
+              "[IdSubCuenta2] AS 'Código Grupo',",
+              "[IdSubCuenta3] AS 'Código Subcuenta',",
+              "[IdSubCuenta4] AS 'Código Cuenta Auxiliar',",
+              "[NaturalezaCuenta] AS 'Naturaleza Cuenta',",
+              "[TipoCuenta] AS 'Tipo de Cuenta',",
+              "[CategoriaCuenta] AS 'Categoría de la Cuenta',",
+              "[ClasificacionGastos] AS 'Clasificación de Gastos'",
+              "  FROM [NALSANI_DWH].[dbo].[DimCuentasContables]"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Cuentas Contables"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkCuentaContable],",
+              "--JERARQUIA",
+              "CONCAT([IdCuentaMayor],' - ',[DsCuentaMayor]) AS 'Clase',",
+              "CONCAT([IdSubCuenta1],' - ',[DsSubCuenta1]) AS 'Grupo',",
+              "CONCAT([IdSubCuenta2],' - ',[DsSubCuenta2]) AS 'Cuenta',",
+              "CONCAT([IdSubCuenta3],' - ',[DsSubCuenta3]) AS 'Subcuenta',",
+              "CONCAT([IdSubCuenta4],' - ',[DsSubCuenta4]) AS 'Cuenta Auxiliar',",
+              "",
+              "--ATRIBUTOS",
+              "[IdCuentaMayor]  AS 'Código Cuenta Mayor',",
+              "[IdSubCuenta1] AS 'Código Clase',",
+              "[IdSubCuenta2] AS 'Código Grupo',",
+              "[IdSubCuenta3] AS 'Código Subcuenta',",
+              "[IdSubCuenta4] AS 'Código Cuenta Auxiliar',",
+              "[NaturalezaCuenta] AS 'Naturaleza Cuenta',",
+              "[TipoCuenta] AS 'Tipo de Cuenta',",
+              "[CategoriaCuenta] AS 'Categoría de la Cuenta',",
+              "[ClasificacionGastos] AS 'Clasificación de Gastos'",
+              "  FROM [NALSANI_DWH].[dbo].[DimCuentasContables]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Proveedor",
+        "columns": [
+          {
+            "name": "SkProveedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProveedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkGeografia",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkGeografia",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Proveedor",
+            "dataType": "string",
+            "sourceColumn": "Proveedor",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Tipo de Identificación",
+            "dataType": "string",
+            "sourceColumn": "Tipo de Identificación",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Digíto de Verificación",
+            "dataType": "string",
+            "sourceColumn": "Digíto de Verificación",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Límite de Crédito",
+            "dataType": "double",
+            "sourceColumn": "Límite de Crédito",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Grupo Proveedor",
+            "dataType": "string",
+            "sourceColumn": "Grupo Proveedor",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Bloqueado",
+            "dataType": "string",
+            "sourceColumn": "Bloqueado",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Contacto",
+            "dataType": "string",
+            "sourceColumn": "Contacto",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Correo",
+            "dataType": "string",
+            "sourceColumn": "Correo",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Proveedor",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT [SkProveedor]",
+                "      ,[SkGeografia]",
+                "      ,[SkMoneda]",
+                "\t  ,CONCAT([IdCuentaProveedor],' - ',[DsProveedor]) AS 'Proveedor'",
+                "\t  ,[DsTipoIdentificacion] AS 'Tipo de Identificación'",
+                "      ,[DigitoVerificacion] AS 'Digíto de Verificación'",
+                "\t  ,[LimiteCredito] AS 'Límite de Crédito' ",
+                "      ,CONCAT([IdGrupoProveedor],' - ',[DsGrupoProveedor]) AS 'Grupo Proveedor'",
+                "      ,[EstadoProveedor] AS 'Bloqueado'",
+                "\t  ,[Telefono1] AS 'Contacto'",
+                "\t  ,[Email1] AS 'Correo'",
+                " FROM [NALSANI_DWH].[dbo].[DimProveedor]"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkProveedor]",
+                  "      ,[SkGeografia]",
+                  "      ,[SkMoneda]",
+                  "\t  ,CONCAT([IdCuentaProveedor],' - ',[DsProveedor]) AS 'Proveedor'",
+                  "\t  ,[DsTipoIdentificacion] AS 'Tipo de Identificación'",
+                  "      ,[DigitoVerificacion] AS 'Digíto de Verificación'",
+                  "\t  ,[LimiteCredito] AS 'Límite de Crédito' ",
+                  "      ,CONCAT([IdGrupoProveedor],' - ',[DsGrupoProveedor]) AS 'Grupo Proveedor'",
+                  "      ,[EstadoProveedor] AS 'Bloqueado'",
+                  "\t  ,[Telefono1] AS 'Contacto'",
+                  "\t  ,[Email1] AS 'Correo'",
+                  " FROM [NALSANI_DWH].[dbo].[DimProveedor]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT [SkProveedor]",
+              "      ,[SkGeografia]",
+              "      ,[SkMoneda]",
+              "\t  ,CONCAT([IdCuentaProveedor],' - ',[DsProveedor]) AS 'Proveedor'",
+              "\t  ,[DsTipoIdentificacion] AS 'Tipo de Identificación'",
+              "      ,[DigitoVerificacion] AS 'Digíto de Verificación'",
+              "\t  ,[LimiteCredito] AS 'Límite de Crédito' ",
+              "      ,CONCAT([IdGrupoProveedor],' - ',[DsGrupoProveedor]) AS 'Grupo Proveedor'",
+              "      ,[EstadoProveedor] AS 'Bloqueado'",
+              "\t  ,[Telefono1] AS 'Contacto'",
+              "\t  ,[Email1] AS 'Correo'",
+              " FROM [NALSANI_DWH].[dbo].[DimProveedor]"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Proveedor"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkProveedor]",
+              "      ,[SkGeografia]",
+              "      ,[SkMoneda]",
+              "\t  ,CONCAT([IdCuentaProveedor],' - ',[DsProveedor]) AS 'Proveedor'",
+              "\t  ,[DsTipoIdentificacion] AS 'Tipo de Identificación'",
+              "      ,[DigitoVerificacion] AS 'Digíto de Verificación'",
+              "\t  ,[LimiteCredito] AS 'Límite de Crédito' ",
+              "      ,CONCAT([IdGrupoProveedor],' - ',[DsGrupoProveedor]) AS 'Grupo Proveedor'",
+              "      ,[EstadoProveedor] AS 'Bloqueado'",
+              "\t  ,[Telefono1] AS 'Contacto'",
+              "\t  ,[Email1] AS 'Correo'",
+              " FROM [NALSANI_DWH].[dbo].[DimProveedor]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "86c440b2-3b08-4c3b-8071-fe20c667869d",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkFechaCxP",
+        "toTable": "D  Tiempo",
+        "toColumn": "SkFecha"
+      },
+      {
+        "name": "6856e470-61e3-4877-86bc-ba7810c7ad21",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkEmpresa",
+        "toTable": "D  Compañía",
+        "toColumn": "SkEmpresa"
+      },
+      {
+        "name": "dba8698a-76f6-4c86-b5b4-de861b02b3ab",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkCentroCosto",
+        "toTable": "D  Centro de Costo",
+        "toColumn": "SkCentroCosto"
+      },
+      {
+        "name": "52a88566-fd6e-46b4-a56f-6d3cf54b69ec",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkMoneda",
+        "toTable": "D  Moneda",
+        "toColumn": "SkMoneda"
+      },
+      {
+        "name": "3f56d395-ecff-44d9-b61a-c8b27feb9a2d",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkTipoTransaccion",
+        "toTable": "D  Tipo de Transacción",
+        "toColumn": "SkTipoTransaccion"
+      },
+      {
+        "name": "99b42109-ac1e-41ff-91fb-545c1a4b6dc3",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkCondicionPago",
+        "toTable": "D  Condición de Pago",
+        "toColumn": "SkCondicionPago"
+      },
+      {
+        "name": "c741891d-fae2-4398-bbaf-126907572ea0",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkCuentaContable",
+        "toTable": "D  Cuentas Contables",
+        "toColumn": "SkCuentaContable"
+      },
+      {
+        "name": "8c6832b8-47e1-40b3-8f08-e1a1da1c6d58",
+        "fromTable": "D  Proveedor",
+        "fromColumn": "SkGeografia",
+        "toTable": "D  Geografía",
+        "toColumn": "SkGeografia"
+      },
+      {
+        "name": "895bf4df-2131-4e6c-b4ca-2631e0b924d4",
+        "fromTable": "M  Cuentas por Pagar",
+        "fromColumn": "SkProveedor",
+        "toTable": "D  Proveedor",
+        "toColumn": "SkProveedor"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

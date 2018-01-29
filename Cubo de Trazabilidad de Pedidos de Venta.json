@@ -1,0 +1,3572 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "NALSANI_DWH",
+        "connectionString": "Provider=SQLNCLI11.1;Persist Security Info=False;User ID=consulta_ssrs;Initial Catalog=NALSANI_DWH;Data Source=10.50.80.167;Initial File Name=;Server SPN=",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "D  Centro Costo",
+        "columns": [
+          {
+            "name": "SkCentroCosto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCentroCosto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código del Centro de Costo",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Código del Centro de Costo"
+          },
+          {
+            "name": "Centro de Costo",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Centro de Costo"
+          },
+          {
+            "name": "Código Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Código Canal"
+          },
+          {
+            "name": "Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Canal"
+          },
+          {
+            "name": "Código Gerencia",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Código Gerencia"
+          },
+          {
+            "name": "Gerencia",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Gerencia"
+          },
+          {
+            "name": "Estado Suspendido",
+            "dataType": "string",
+            "sourceColumn": "Estado Suspendido"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimCentroCosto",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT CC.[skcentrocosto], ",
+                "       CC.[idcentrocosto]    AS 'Código del Centro de Costo', ",
+                "       CC.[nmcentrocosto]    AS 'Centro de Costo', ",
+                "\t   G.IdGerencia\t\t\tAS 'Código Gerencia',",
+                "\t   G.DsGerencia\t\t\tAS 'Gerencia',",
+                "       C.[idcanal]           AS 'Código Canal', ",
+                "       C.[nmcanal]           AS 'Canal', ",
+                "       CC.[estadosuspendido] AS 'Estado Suspendido'",
+                "FROM   [NALSANI_DWH].[dbo].[dimcentrocosto] CC ",
+                "       LEFT JOIN dimcanal C ",
+                "       ON CC.skcanal = C.skcanal",
+                "\t   LEFT JOIN DimGerencia G",
+                "\t   ON CC.SkGerencia = G.SKGerencia"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT CC.[skcentrocosto], ",
+                  "       CC.[idcentrocosto]    AS 'Código del Centro de Costo', ",
+                  "       CC.[nmcentrocosto]    AS 'Centro de Costo', ",
+                  "\t   G.IdGerencia\t\t\tAS 'Código Gerencia',",
+                  "\t   G.DsGerencia\t\t\tAS 'Gerencia',",
+                  "       C.[idcanal]           AS 'Código Canal', ",
+                  "       C.[nmcanal]           AS 'Canal', ",
+                  "       CC.[estadosuspendido] AS 'Estado Suspendido'",
+                  "FROM   [NALSANI_DWH].[dbo].[dimcentrocosto] CC ",
+                  "       LEFT JOIN dimcanal C ",
+                  "       ON CC.skcanal = C.skcanal",
+                  "\t   LEFT JOIN DimGerencia G",
+                  "\t   ON CC.SkGerencia = G.SKGerencia</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": ".Centro de Costo",
+            "levels": [
+              {
+                "name": "Código del Centro de Costo",
+                "ordinal": 0,
+                "column": "Código del Centro de Costo"
+              },
+              {
+                "name": "Centro de Costo",
+                "ordinal": 1,
+                "column": "Centro de Costo"
+              },
+              {
+                "name": "Código Canal",
+                "ordinal": 2,
+                "column": "Código Canal"
+              },
+              {
+                "name": "Canal",
+                "ordinal": 3,
+                "column": "Canal"
+              },
+              {
+                "name": "Código Gerencia",
+                "ordinal": 4,
+                "column": "Código Gerencia"
+              },
+              {
+                "name": "Gerencia",
+                "ordinal": 5,
+                "column": "Gerencia"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT CC.[skcentrocosto], ",
+              "       CC.[idcentrocosto]    AS 'Código del Centro de Costo', ",
+              "       CC.[nmcentrocosto]    AS 'Centro de Costo', ",
+              "\t   G.IdGerencia\t\t\tAS 'Código Gerencia',",
+              "\t   G.DsGerencia\t\t\tAS 'Gerencia',",
+              "       C.[idcanal]           AS 'Código Canal', ",
+              "       C.[nmcanal]           AS 'Canal', ",
+              "       CC.[estadosuspendido] AS 'Estado Suspendido'",
+              "FROM   [NALSANI_DWH].[dbo].[dimcentrocosto] CC ",
+              "       LEFT JOIN dimcanal C ",
+              "       ON CC.skcanal = C.skcanal",
+              "\t   LEFT JOIN DimGerencia G",
+              "\t   ON CC.SkGerencia = G.SKGerencia"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCentroCosto"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT CC.[skcentrocosto], ",
+              "       CC.[idcentrocosto]    AS 'Código del Centro de Costo', ",
+              "       CC.[nmcentrocosto]    AS 'Centro de Costo', ",
+              "\t   G.IdGerencia\t\t\tAS 'Código Gerencia',",
+              "\t   G.DsGerencia\t\t\tAS 'Gerencia',",
+              "       C.[idcanal]           AS 'Código Canal', ",
+              "       C.[nmcanal]           AS 'Canal', ",
+              "       CC.[estadosuspendido] AS 'Estado Suspendido'",
+              "FROM   [NALSANI_DWH].[dbo].[dimcentrocosto] CC ",
+              "       LEFT JOIN dimcanal C ",
+              "       ON CC.skcanal = C.skcanal",
+              "\t   LEFT JOIN DimGerencia G",
+              "\t   ON CC.SkGerencia = G.SKGerencia</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Cliente",
+        "columns": [
+          {
+            "name": "SkCliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Dirección",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Dirección"
+          },
+          {
+            "name": "País",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "País"
+          },
+          {
+            "name": "Departamento",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Departamento"
+          },
+          {
+            "name": "Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Ciudad"
+          },
+          {
+            "name": "Código Sucursal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Código Sucursal"
+          },
+          {
+            "name": "Sucursal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Sucursal"
+          },
+          {
+            "name": "Número Identificación",
+            "dataType": "string",
+            "sourceColumn": "Número Identificación"
+          },
+          {
+            "name": "Cliente",
+            "dataType": "string",
+            "sourceColumn": "Cliente"
+          },
+          {
+            "name": "Cuenta Cliente",
+            "dataType": "string",
+            "sourceColumn": "Cuenta Cliente"
+          },
+          {
+            "name": "Grupo Cliente",
+            "dataType": "string",
+            "sourceColumn": "Grupo Cliente"
+          },
+          {
+            "name": "Latitud",
+            "dataType": "double",
+            "sourceColumn": "Latitud"
+          },
+          {
+            "name": "Longitud",
+            "dataType": "double",
+            "sourceColumn": "Longitud"
+          },
+          {
+            "name": "Genéro",
+            "dataType": "string",
+            "sourceColumn": "Genéro"
+          },
+          {
+            "name": "LimiteCredito",
+            "dataType": "double",
+            "sourceColumn": "LimiteCredito"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimCliente",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT  [SkCliente]",
+                "\t--JERARQUIA DEL CLIENTE ",
+                "      ,G.NmPais AS 'País'",
+                "\t  ,G.NmDepartamento AS 'Departamento'",
+                "\t  ,G.NmCiudad AS 'Ciudad'",
+                "\t  ,C.IdSucursal AS 'Código Sucursal'",
+                "\t  ,C.NombreSucursal1 AS 'Sucursal'",
+                "\t  ,C.Direccion1 AS 'Dirección'",
+                "",
+                "",
+                "\t  --- ATRIBUTOS",
+                "\t  ,[IdCliente] AS 'Número Identificación'",
+                "\t  ,[NmCliente] AS 'Cliente'",
+                "\t  ,[IdCuenta] AS 'Cuenta Cliente'",
+                "\t  ,CONCAT([IdGrupoClientes],' - ',[DsGrupoClientes]) AS 'Grupo Cliente'",
+                "\t  ,[Latitud1] AS 'Latitud'",
+                "      ,[Longitud1] AS 'Longitud'",
+                "      ,[Genero] AS 'Genéro'",
+                "      ,[LimiteCredito]",
+                " ",
+                "  FROM [NALSANI_DWH].[dbo].[DimCliente] C",
+                "  LEFT JOIN  DimGeografia G",
+                "   ON G.SkGeografia= C.SkGeografiaCliente"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkCliente]",
+                  "\t--JERARQUIA DEL CLIENTE ",
+                  "      ,G.NmPais AS 'País'",
+                  "\t  ,G.NmDepartamento AS 'Departamento'",
+                  "\t  ,G.NmCiudad AS 'Ciudad'",
+                  "\t  ,C.IdSucursal AS 'Código Sucursal'",
+                  "\t  ,C.NombreSucursal1 AS 'Sucursal'",
+                  "\t  ,C.Direccion1 AS 'Dirección'",
+                  "",
+                  "",
+                  "\t  --- ATRIBUTOS",
+                  "\t  ,[IdCliente] AS 'Número Identificación'",
+                  "\t  ,[NmCliente] AS 'Cliente'",
+                  "\t  ,[IdCuenta] AS 'Cuenta Cliente'",
+                  "\t  ,CONCAT([IdGrupoClientes],' - ',[DsGrupoClientes]) AS 'Grupo Cliente'",
+                  "\t  ,[Latitud1] AS 'Latitud'",
+                  "      ,[Longitud1] AS 'Longitud'",
+                  "      ,[Genero] AS 'Genéro'",
+                  "      ,[LimiteCredito]",
+                  " ",
+                  "  FROM [NALSANI_DWH].[dbo].[DimCliente] C",
+                  "  LEFT JOIN  DimGeografia G",
+                  "   ON G.SkGeografia= C.SkGeografiaCliente</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Geografía Cliente",
+            "levels": [
+              {
+                "name": "País",
+                "ordinal": 0,
+                "column": "País"
+              },
+              {
+                "name": "Departamento",
+                "ordinal": 1,
+                "column": "Departamento"
+              },
+              {
+                "name": "Ciudad",
+                "ordinal": 2,
+                "column": "Ciudad"
+              },
+              {
+                "name": "Código Sucursal",
+                "ordinal": 3,
+                "column": "Código Sucursal"
+              },
+              {
+                "name": "Sucursal",
+                "ordinal": 4,
+                "column": "Sucursal"
+              },
+              {
+                "name": "Dirección",
+                "ordinal": 5,
+                "column": "Dirección"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT  [SkCliente]",
+              "\t--JERARQUIA DEL CLIENTE ",
+              "      ,G.NmPais AS 'País'",
+              "\t  ,G.NmDepartamento AS 'Departamento'",
+              "\t  ,G.NmCiudad AS 'Ciudad'",
+              "\t  ,C.IdSucursal AS 'Código Sucursal'",
+              "\t  ,C.NombreSucursal1 AS 'Sucursal'",
+              "\t  ,C.Direccion1 AS 'Dirección'",
+              "",
+              "",
+              "\t  --- ATRIBUTOS",
+              "\t  ,[IdCliente] AS 'Número Identificación'",
+              "\t  ,[NmCliente] AS 'Cliente'",
+              "\t  ,[IdCuenta] AS 'Cuenta Cliente'",
+              "\t  ,CONCAT([IdGrupoClientes],' - ',[DsGrupoClientes]) AS 'Grupo Cliente'",
+              "\t  ,[Latitud1] AS 'Latitud'",
+              "      ,[Longitud1] AS 'Longitud'",
+              "      ,[Genero] AS 'Genéro'",
+              "      ,[LimiteCredito]",
+              " ",
+              "  FROM [NALSANI_DWH].[dbo].[DimCliente] C",
+              "  LEFT JOIN  DimGeografia G",
+              "   ON G.SkGeografia= C.SkGeografiaCliente"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCliente"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkCliente]",
+              "\t--JERARQUIA DEL CLIENTE ",
+              "      ,G.NmPais AS 'País'",
+              "\t  ,G.NmDepartamento AS 'Departamento'",
+              "\t  ,G.NmCiudad AS 'Ciudad'",
+              "\t  ,C.IdSucursal AS 'Código Sucursal'",
+              "\t  ,C.NombreSucursal1 AS 'Sucursal'",
+              "\t  ,C.Direccion1 AS 'Dirección'",
+              "",
+              "",
+              "\t  --- ATRIBUTOS",
+              "\t  ,[IdCliente] AS 'Número Identificación'",
+              "\t  ,[NmCliente] AS 'Cliente'",
+              "\t  ,[IdCuenta] AS 'Cuenta Cliente'",
+              "\t  ,CONCAT([IdGrupoClientes],' - ',[DsGrupoClientes]) AS 'Grupo Cliente'",
+              "\t  ,[Latitud1] AS 'Latitud'",
+              "      ,[Longitud1] AS 'Longitud'",
+              "      ,[Genero] AS 'Genéro'",
+              "      ,[LimiteCredito]",
+              " ",
+              "  FROM [NALSANI_DWH].[dbo].[DimCliente] C",
+              "  LEFT JOIN  DimGeografia G",
+              "   ON G.SkGeografia= C.SkGeografiaCliente</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Estado Logístico",
+        "columns": [
+          {
+            "name": "SkEstadoLogistico",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstadoLogistico",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Estado Logístico",
+            "dataType": "int64",
+            "sourceColumn": "IdEstadoLogistico",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Estado Logístico",
+            "dataType": "string",
+            "sourceColumn": "DsEstadoLogistico",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimEstadoLogistico",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimEstadoLogistico].* FROM [dbo].[DimEstadoLogistico] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimEstadoLogistico].* FROM [dbo].[DimEstadoLogistico] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimEstadoLogistico"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Estado Pedido",
+        "columns": [
+          {
+            "name": "SkEstadoPedido",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstadoPedido",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Estado Pedido",
+            "dataType": "int64",
+            "sourceColumn": "IdEstadoPedido",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Estado Pedido",
+            "dataType": "string",
+            "sourceColumn": "DsEstadoPedido",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimEstadoPedido",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimEstadoPedido].* FROM [dbo].[DimEstadoPedido] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimEstadoPedido].* FROM [dbo].[DimEstadoPedido] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimEstadoPedido"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Moneda",
+        "columns": [
+          {
+            "name": "SkMoneda",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMoneda",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Moneda",
+            "dataType": "string",
+            "sourceColumn": "IdMoneda",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Moneda",
+            "dataType": "string",
+            "sourceColumn": "NmMoneda",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimMoneda",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimMoneda].* FROM [dbo].[DimMoneda] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimMoneda].* FROM [dbo].[DimMoneda] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimMoneda"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Producto",
+        "columns": [
+          {
+            "name": "SkProducto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProducto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Unidad de Negocio",
+            "dataType": "string",
+            "sourceColumn": "Unidad de Negocio"
+          },
+          {
+            "name": "Línea de Negocio",
+            "dataType": "string",
+            "sourceColumn": "Línea de Negocio"
+          },
+          {
+            "name": "Marca",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Marca"
+          },
+          {
+            "name": "Colección",
+            "dataType": "string",
+            "sourceColumn": "Colección"
+          },
+          {
+            "name": "Vertical",
+            "dataType": "string",
+            "sourceColumn": "Vertical"
+          },
+          {
+            "name": "Audiencia",
+            "dataType": "string",
+            "sourceColumn": "Audiencia"
+          },
+          {
+            "name": "Nivel Principal Producto",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Nivel Principal Producto"
+          },
+          {
+            "name": "Genéro",
+            "dataType": "string",
+            "sourceColumn": "Genéro"
+          },
+          {
+            "name": "Clase",
+            "dataType": "string",
+            "sourceColumn": "Clase"
+          },
+          {
+            "name": "Subclase",
+            "dataType": "string",
+            "sourceColumn": "Subclase"
+          },
+          {
+            "name": "Ciclo de Vida",
+            "dataType": "string",
+            "sourceColumn": "Ciclo de Vida"
+          },
+          {
+            "name": "Código Producto Base",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Base"
+          },
+          {
+            "name": "Código Producto Genérico",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Genérico"
+          },
+          {
+            "name": "Código Producto Largo",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Largo"
+          },
+          {
+            "name": "Nombre del Producto",
+            "dataType": "string",
+            "sourceColumn": "Producto"
+          },
+          {
+            "name": "Gama Color Producto",
+            "dataType": "string",
+            "sourceColumn": "Gama Color Producto"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color"
+          },
+          {
+            "name": "Talla",
+            "dataType": "string",
+            "sourceColumn": "Talla"
+          },
+          {
+            "name": "Dimensiones",
+            "dataType": "string",
+            "sourceColumn": "Dimensiones"
+          },
+          {
+            "name": "EAN",
+            "dataType": "string",
+            "sourceColumn": "EAN"
+          },
+          {
+            "name": "Sublínea",
+            "dataType": "string",
+            "sourceColumn": "Sublínea"
+          },
+          {
+            "name": "Dotación",
+            "dataType": "string",
+            "sourceColumn": "Dotación"
+          },
+          {
+            "name": "Origen",
+            "dataType": "string",
+            "sourceColumn": "Origen"
+          },
+          {
+            "name": "Regalías",
+            "dataType": "string",
+            "sourceColumn": "Regalías"
+          },
+          {
+            "name": "País Origen",
+            "dataType": "string",
+            "sourceColumn": "País Origen"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimProducto",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT  [SkProducto]\t ",
+                "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+                "\t ,[DsMarca] AS 'Marca'",
+                "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+                "\t ,[DsVertical] AS 'Vertical'",
+                "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+                "\t ,[DsGenero] AS 'Genéro'",
+                "\t ,[DsClase] AS 'Clase'",
+                "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+                "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+                "\t ,[DsAudiencia] AS 'Audiencia'",
+                "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+                "\t ,[IdProductoBase] AS 'Código Producto Base'",
+                "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+                "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+                "\t -----ATRIBUTO",
+                "\t ,[NmProducto] AS 'Producto'   ",
+                " ",
+                "\t --VENTAS   ",
+                "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+                "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+                "\t ,[CodTalla] AS 'Talla'",
+                "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+                "\t ,CASE ",
+                "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+                "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+                "\t\t\t\tELSE",
+                "\t\t\t\t\t[ValorEan]",
+                "\t\tEND EAN",
+                "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+                "\t ,[DsDotacion] AS 'Dotación'",
+                "\t ,[DsOrigen] AS 'Origen'",
+                "",
+                "\t ,[DsRegalias] AS 'Regalías'",
+                "\t ,[PaisOrigen] AS 'País Origen'",
+                "  FROM [NALSANI_DWH].[dbo].[DimProducto]"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkProducto]\t ",
+                  "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+                  "\t ,[DsMarca] AS 'Marca'",
+                  "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+                  "\t ,[DsVertical] AS 'Vertical'",
+                  "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+                  "\t ,[DsGenero] AS 'Genéro'",
+                  "\t ,[DsClase] AS 'Clase'",
+                  "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+                  "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+                  "\t ,[DsAudiencia] AS 'Audiencia'",
+                  "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+                  "\t ,[IdProductoBase] AS 'Código Producto Base'",
+                  "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+                  "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+                  "\t -----ATRIBUTO",
+                  "\t ,[NmProducto] AS 'Producto'   ",
+                  " ",
+                  "\t --VENTAS   ",
+                  "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+                  "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+                  "\t ,[CodTalla] AS 'Talla'",
+                  "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+                  "\t ,CASE ",
+                  "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+                  "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+                  "\t\t\t\tELSE",
+                  "\t\t\t\t\t[ValorEan]",
+                  "\t\tEND EAN",
+                  "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+                  "\t ,[DsDotacion] AS 'Dotación'",
+                  "\t ,[DsOrigen] AS 'Origen'",
+                  "",
+                  "\t ,[DsRegalias] AS 'Regalías'",
+                  "\t ,[PaisOrigen] AS 'País Origen'",
+                  "  FROM [NALSANI_DWH].[dbo].[DimProducto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": ".Producto",
+            "levels": [
+              {
+                "name": "Nivel Principal Producto",
+                "ordinal": 0,
+                "column": "Nivel Principal Producto"
+              },
+              {
+                "name": "Marca",
+                "ordinal": 1,
+                "column": "Marca"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT  [SkProducto]\t ",
+              "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+              "\t ,[DsMarca] AS 'Marca'",
+              "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+              "\t ,[DsVertical] AS 'Vertical'",
+              "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+              "\t ,[DsGenero] AS 'Genéro'",
+              "\t ,[DsClase] AS 'Clase'",
+              "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+              "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+              "\t ,[DsAudiencia] AS 'Audiencia'",
+              "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+              "\t ,[IdProductoBase] AS 'Código Producto Base'",
+              "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+              "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+              "\t -----ATRIBUTO",
+              "\t ,[NmProducto] AS 'Producto'   ",
+              " ",
+              "\t --VENTAS   ",
+              "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+              "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+              "\t ,[CodTalla] AS 'Talla'",
+              "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+              "\t ,CASE ",
+              "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+              "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+              "\t\t\t\tELSE",
+              "\t\t\t\t\t[ValorEan]",
+              "\t\tEND EAN",
+              "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+              "\t ,[DsDotacion] AS 'Dotación'",
+              "\t ,[DsOrigen] AS 'Origen'",
+              "",
+              "\t ,[DsRegalias] AS 'Regalías'",
+              "\t ,[PaisOrigen] AS 'País Origen'",
+              "  FROM [NALSANI_DWH].[dbo].[DimProducto]"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimProducto"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkProducto]\t ",
+              "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+              "\t ,[DsMarca] AS 'Marca'",
+              "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+              "\t ,[DsVertical] AS 'Vertical'",
+              "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+              "\t ,[DsGenero] AS 'Genéro'",
+              "\t ,[DsClase] AS 'Clase'",
+              "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+              "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+              "\t ,[DsAudiencia] AS 'Audiencia'",
+              "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+              "\t ,[IdProductoBase] AS 'Código Producto Base'",
+              "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+              "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+              "\t -----ATRIBUTO",
+              "\t ,[NmProducto] AS 'Producto'   ",
+              " ",
+              "\t --VENTAS   ",
+              "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+              "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+              "\t ,[CodTalla] AS 'Talla'",
+              "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+              "\t ,CASE ",
+              "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+              "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+              "\t\t\t\tELSE",
+              "\t\t\t\t\t[ValorEan]",
+              "\t\tEND EAN",
+              "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+              "\t ,[DsDotacion] AS 'Dotación'",
+              "\t ,[DsOrigen] AS 'Origen'",
+              "",
+              "\t ,[DsRegalias] AS 'Regalías'",
+              "\t ,[PaisOrigen] AS 'País Origen'",
+              "  FROM [NALSANI_DWH].[dbo].[DimProducto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Transportadora",
+        "columns": [
+          {
+            "name": "SkTransportadora",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTransportadora",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Transportadora",
+            "dataType": "string",
+            "sourceColumn": "IdTransportadora",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Transportadora",
+            "dataType": "string",
+            "sourceColumn": "DsTransportadora",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Modo de Transporte",
+            "dataType": "string",
+            "sourceColumn": "ModoTransporte",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Activo",
+            "dataType": "string",
+            "sourceColumn": "Activo",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimTransportadora",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimTransportadora].* FROM [dbo].[DimTransportadora] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimTransportadora].* FROM [dbo].[DimTransportadora] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimTransportadora"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D Vendedor",
+        "columns": [
+          {
+            "name": "SkVendedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkVendedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Vendedor",
+            "dataType": "string",
+            "sourceColumn": "IdVendedor",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Vendedor",
+            "dataType": "string",
+            "sourceColumn": "NmVendedor",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimVendedor",
+            "dataView": "full",
+            "source": {
+              "query": "SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[SkCentroCosto],[dbo].[DimVendedor].[IdVendedor],[dbo].[DimVendedor].[NmVendedor],[dbo].[DimVendedor].[DsEstadoVendedor] FROM [dbo].[DimVendedor]",
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[SkCentroCosto],[dbo].[DimVendedor].[IdVendedor],[dbo].[DimVendedor].[NmVendedor],[dbo].[DimVendedor].[DsEstadoVendedor] FROM [dbo].[DimVendedor]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[SkCentroCosto],[dbo].[DimVendedor].[IdVendedor],[dbo].[DimVendedor].[NmVendedor],[dbo].[DimVendedor].[DsEstadoVendedor] FROM [dbo].[DimVendedor]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimVendedor"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[SkCentroCosto],[dbo].[DimVendedor].[IdVendedor],[dbo].[DimVendedor].[NmVendedor],[dbo].[DimVendedor].[DsEstadoVendedor] FROM [dbo].[DimVendedor]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "M  Pedido Venta",
+        "columns": [
+          {
+            "name": "SkPedidoVenta",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkPedidoVenta",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaPedidoVenta",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaPedidoVenta",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaEnvioPedidoVenta",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaEnvioPedidoVenta",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkCentroCosto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCentroCosto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkEstadoPedido",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstadoPedido",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkEstadoLogistico",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstadoLogistico",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkVendedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkVendedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkMoneda",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMoneda",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkTransportadora",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTransportadora",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkProducto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProducto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkCliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Cartera",
+            "dataType": "string",
+            "sourceColumn": "Cartera",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SkFechaLiberacionCartera",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaLiberacionCartera",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaEnvioSolicitada",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaEnvioSolicitada",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaRecepcionSolicitada",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaRecepcionSolicitada",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaLiberacionPedido",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaLiberacionPedido",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaPreparacion",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaPreparacion",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaEnvioConfirmada",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaEnvioConfirmada",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkTipoPedido",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTipoPedido",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkMotivoDevolucion",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMotivoDevolucion",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkModoEntrega",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkModoEntrega",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaReservaInternacional",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaReservaInternacional",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaFacturacionInternacional",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaFacturacionInternacional",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaEstimadaDespachoInternacional",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaEstimadaDespachoInternacional",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaDespachoCEDI",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaDespachoCEDI",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaConfirmacionCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaConfirmacionCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkTipoPedidoVenta",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTipoPedidoVenta",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkFechaLlegadaILS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaLlegadaILS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Flete",
+            "dataType": "string",
+            "sourceColumn": "Flete",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Puerto",
+            "dataType": "string",
+            "sourceColumn": "Puerto",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SkFechaEntregaCarpetaOI",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaEntregaCarpetaOI",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Marco",
+            "dataType": "int64",
+            "sourceColumn": "Marco",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Fecha Pedido Venta",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Pedido Venta",
+            "formatString": "M/d/yyyy h:mm:ss AM/PM",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"GeneralLongDateTime\" FormatString=\"M/d/yyyy h:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Fecha de Envio",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Envio",
+            "formatString": "M/d/yyyy h:mm:ss AM/PM",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"GeneralLongDateTime\" FormatString=\"M/d/yyyy h:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Número Pedido de Venta",
+            "dataType": "string",
+            "sourceColumn": "Número Pedido de Venta"
+          },
+          {
+            "name": "Número Línea Pedido de Venta",
+            "dataType": "int64",
+            "sourceColumn": "Número Línea Pedido de Venta"
+          },
+          {
+            "name": "Número Pedido en Cadenas",
+            "dataType": "string",
+            "sourceColumn": "Número Pedido en Cadenas"
+          },
+          {
+            "name": "Número Pedido Cliente",
+            "dataType": "string",
+            "sourceColumn": "Número Pedido Cliente"
+          },
+          {
+            "name": "Número Guía",
+            "dataType": "string",
+            "sourceColumn": "Número Guía"
+          },
+          {
+            "name": "Número Lote",
+            "dataType": "string",
+            "sourceColumn": "Número Lote"
+          },
+          {
+            "name": "Unidades Pedidas",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Unidades Pedidas"
+          },
+          {
+            "name": "Unidades Reservadas",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Unidades Reservadas"
+          },
+          {
+            "name": "Unidades Recibidas",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Unidades Recibidas"
+          },
+          {
+            "name": "Cantidad Unidades Pendientes",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Cantidad Unidades Pendientes"
+          },
+          {
+            "name": "Cantidad Cajas",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Cantidad Cajas"
+          },
+          {
+            "name": "Valor Precio Unitario COP",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Valor Precio Unitario COP",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Precio Bruto COP",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Valor Precio Bruto COP",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Anticipo",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Valor Anticipo",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Neto Pedido COP",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Valor Neto Pedido COP",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Neto Pedido USD",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Valor Neto Pedido USD",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Precio Venta Base",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Valor Precio Venta Base",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Aprobado Cartera",
+            "dataType": "string",
+            "sourceColumn": "Aprobado Cartera"
+          },
+          {
+            "name": "Sección Compra",
+            "dataType": "string",
+            "sourceColumn": "Sección Compra"
+          },
+          {
+            "name": "Fecha de Liberación Cartera",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Liberación Cartera"
+          },
+          {
+            "name": "Fecha de Envio Solicitada",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Envio Solicitada"
+          },
+          {
+            "name": "Fecha de Recepción Solicitada",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Recepción Solicitada"
+          },
+          {
+            "name": "Fecha de Liberación Pedido",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Liberación Pedido"
+          },
+          {
+            "name": "Fecha de Preparación",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Preparación"
+          },
+          {
+            "name": "Fecha de Envió Confirmada",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Envió Confirmada"
+          },
+          {
+            "name": "Fecha de Reserva Internacional",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Reserva Internacional"
+          },
+          {
+            "name": "Fecha de Factuaración Internacional",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Factuaración Internacional"
+          },
+          {
+            "name": "Fecha Estimada Despacho Internacional",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Estimada Despacho Internacional"
+          },
+          {
+            "name": "Fecha Despacho CEDI",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Despacho CEDI"
+          },
+          {
+            "name": "Fecha de Confirmación Canal",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha de Confirmación Canal"
+          },
+          {
+            "name": "Fecha llegada ILS",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha llegada ILS"
+          },
+          {
+            "name": "Consolidación",
+            "dataType": "string",
+            "sourceColumn": "Consolidación"
+          },
+          {
+            "name": "Emisión Documento",
+            "dataType": "string",
+            "sourceColumn": "Emisión Documento"
+          },
+          {
+            "name": "Lugar Destino",
+            "dataType": "string",
+            "sourceColumn": "Lugar Destino"
+          },
+          {
+            "name": "Transporte Terestre Puerto Aéreo",
+            "dataType": "string",
+            "sourceColumn": "Transporte Terestre Puerto Aéreo"
+          },
+          {
+            "name": "Nombre Conductor",
+            "dataType": "string",
+            "sourceColumn": "Nombre Conductor"
+          },
+          {
+            "name": "Placas Vehiculo",
+            "dataType": "string",
+            "sourceColumn": "Placas Vehiculo"
+          },
+          {
+            "name": "Número Precinto",
+            "dataType": "string",
+            "sourceColumn": "Número Precinto"
+          },
+          {
+            "name": "Modo Transporte Comex",
+            "dataType": "string",
+            "sourceColumn": "Modo Transporte Comex"
+          },
+          {
+            "name": "Terminos de Negociación",
+            "dataType": "string",
+            "sourceColumn": "Terminos de Negociación"
+          },
+          {
+            "name": "Contacto Exportación",
+            "dataType": "string",
+            "sourceColumn": "Contacto Exportación"
+          },
+          {
+            "name": "Fecha Entrega Carpeta OI",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Entrega Carpeta OI"
+          },
+          {
+            "name": "Orden Marco",
+            "dataType": "string",
+            "sourceColumn": "Orden Marco"
+          },
+          {
+            "name": "Orden Marco Origen",
+            "dataType": "string",
+            "sourceColumn": "Orden Marco Origen"
+          },
+          {
+            "type": "calculated",
+            "name": "Días Vencidos",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "DATEDIFF([Fecha de Envio Solicitada],[Fecha de Envió Confirmada],DAY)"
+          },
+          {
+            "name": "SkEstructuraCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstructuraCanal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FactPedidoVenta",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT  [SkPedidoVenta]",
+                "      ,[SkFechaPedidoVenta]",
+                "      ,[SkFechaEnvioPedidoVenta]",
+                "      ,[SkEstructuraCanal]",
+                "      ,[SkCentroCosto]",
+                "      ,[SkEstadoPedido]",
+                "      ,[SkEstadoLogistico]",
+                "      ,[SkVendedor]",
+                "      ,[SkMoneda]",
+                "      ,[SkTransportadora]",
+                "      ,[SkProducto]",
+                "      ,[SkCliente]",
+                "      ,[DtPedidoVenta] AS 'Fecha Pedido Venta'",
+                "      ,[DtEnvioPedidoVenta] AS 'Fecha de Envio'",
+                "      ,[NumPedidoVenta] AS 'Número Pedido de Venta'",
+                "      ,[NumLineaPedidoVenta] AS 'Número Línea Pedido de Venta'",
+                "      ,[NumPedidoenCadenas] AS 'Número Pedido en Cadenas'",
+                "      ,[NumPedidoCliente] AS 'Número Pedido Cliente'",
+                "      ,[NumGuia] AS 'Número Guía'",
+                "      ,[NumLote] AS 'Número Lote'",
+                "      ,[CantUnidadesPedidas] AS 'Unidades Pedidas'",
+                "      ,[CantUnidadesReservadas] AS 'Unidades Reservadas'",
+                "      ,[CantUnidadesRecibidas] AS 'Unidades Recibidas'",
+                "      ,[CantUnidadesPendientes] AS 'Cantidad Unidades Pendientes'",
+                "      ,[CantCajas] AS 'Cantidad Cajas'",
+                "      ,[ValorPrecioUnitarioML] AS 'Valor Precio Unitario COP'",
+                "      ,[ValorPrecioBrutoML] AS 'Valor Precio Bruto COP'",
+                "      ,[ValorAnticipo] AS 'Valor Anticipo'",
+                "      ,[ValorNetoPedidoML] AS 'Valor Neto Pedido COP'",
+                "      ,[ValorNetoPedidoME] AS 'Valor Neto Pedido USD'",
+                "      ,[PrecioVentaBase] AS 'Valor Precio Venta Base'",
+                "      ,[Cartera] AS 'Cartera'",
+                "      ,[AprobadoCartera] AS 'Aprobado Cartera'",
+                "      ,[DsSeccionCompra] AS 'Sección Compra'",
+                "      ,[SkFechaLiberacionCartera] ",
+                "      ,[DtFechaLiberacionCartera] AS 'Fecha de Liberación Cartera'",
+                "      ,[SkFechaEnvioSolicitada] ",
+                "      ,[DtFechaEnvioSolicitada] AS 'Fecha de Envio Solicitada'",
+                "      ,[SkFechaRecepcionSolicitada]",
+                "      ,[DtFechaRecepcionSolicitada] AS 'Fecha de Recepción Solicitada'",
+                "      ,[SkFechaLiberacionPedido]",
+                "      ,[DtFechaLiberacionPedido] AS 'Fecha de Liberación Pedido'",
+                "      ,[SkFechaPreparacion]",
+                "      ,[DtFechaPreparacion] AS 'Fecha de Preparación'",
+                "      ,[SkFechaEnvioConfirmada]",
+                "      ,[DtFechaEnvioConfirmada] AS 'Fecha de Envió Confirmada'",
+                "      ,[SkTipoPedido]",
+                "      ,[SkMotivoDevolucion]",
+                "      ,[SkModoEntrega]",
+                "      ,[SkFechaReservaInternacional]",
+                "      ,[DtFechaReservaInternacional] AS 'Fecha de Reserva Internacional'",
+                "      ,[SkFechaFacturacionInternacional]",
+                "      ,[DtFechaFacturacionInternacional] AS 'Fecha de Factuaración Internacional'",
+                "      ,[SkFechaEstimadaDespachoInternacional]",
+                "      ,[DtFechaEstimadaDespachoInternacional] AS 'Fecha Estimada Despacho Internacional'",
+                "      ,[SkFechaDespachoCEDI]",
+                "      ,[DtFechaDespachoCEDI] AS 'Fecha Despacho CEDI'",
+                "      ,[SkFechaConfirmacionCanal]",
+                "      ,[DtFechaConfirmacionCanal] AS 'Fecha de Confirmación Canal'",
+                "      ,[SkTipoPedidoVenta]",
+                "      ,[SkFechaLlegadaILS]",
+                "      ,[DtFechaLlegadaILS] AS 'Fecha llegada ILS'",
+                "      ,[Consolidacion] AS 'Consolidación'",
+                "      ,[Flete]",
+                "      ,[EmisionDocumento] AS 'Emisión Documento'",
+                "      ,[LugarDestino] AS 'Lugar Destino'",
+                "      ,[TransporteTerrestrePuertoAeropuerto] AS 'Transporte Terestre Puerto Aéreo'",
+                "      ,[NombreConductor] AS 'Nombre Conductor'",
+                "      ,[PlacasVehiculo] AS 'Placas Vehiculo'",
+                "      ,[NumeroPrecinto] AS 'Número Precinto'",
+                "      ,[ModoTransporteComex] AS 'Modo Transporte Comex'",
+                "      ,[TerminosNegociacion] AS 'Terminos de Negociación'",
+                "      ,[Puerto] ",
+                "      ,[ContactoExpo] AS 'Contacto Exportación'",
+                "      ,[SkFechaEntregaCarpetaOI]",
+                "      ,[DtFechaEntregaCarpetaOI] AS 'Fecha Entrega Carpeta OI'",
+                "      ,[Marco]",
+                "      ,[OrdenMarco] AS 'Orden Marco'",
+                "      ,[OrdenMarcoOrigen] AS 'Orden Marco Origen'",
+                "  FROM [NALSANI_DWH].[dbo].[FactPedidoVenta]",
+                "  WHERE SkEstadoPedido <>4"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkPedidoVenta]",
+                  "      ,[SkFechaPedidoVenta]",
+                  "      ,[SkFechaEnvioPedidoVenta]",
+                  "      ,[SkEstructuraCanal]",
+                  "      ,[SkCentroCosto]",
+                  "      ,[SkEstadoPedido]",
+                  "      ,[SkEstadoLogistico]",
+                  "      ,[SkVendedor]",
+                  "      ,[SkMoneda]",
+                  "      ,[SkTransportadora]",
+                  "      ,[SkProducto]",
+                  "      ,[SkCliente]",
+                  "      ,[DtPedidoVenta] AS 'Fecha Pedido Venta'",
+                  "      ,[DtEnvioPedidoVenta] AS 'Fecha de Envio'",
+                  "      ,[NumPedidoVenta] AS 'Número Pedido de Venta'",
+                  "      ,[NumLineaPedidoVenta] AS 'Número Línea Pedido de Venta'",
+                  "      ,[NumPedidoenCadenas] AS 'Número Pedido en Cadenas'",
+                  "      ,[NumPedidoCliente] AS 'Número Pedido Cliente'",
+                  "      ,[NumGuia] AS 'Número Guía'",
+                  "      ,[NumLote] AS 'Número Lote'",
+                  "      ,[CantUnidadesPedidas] AS 'Unidades Pedidas'",
+                  "      ,[CantUnidadesReservadas] AS 'Unidades Reservadas'",
+                  "      ,[CantUnidadesRecibidas] AS 'Unidades Recibidas'",
+                  "      ,[CantUnidadesPendientes] AS 'Cantidad Unidades Pendientes'",
+                  "      ,[CantCajas] AS 'Cantidad Cajas'",
+                  "      ,[ValorPrecioUnitarioML] AS 'Valor Precio Unitario COP'",
+                  "      ,[ValorPrecioBrutoML] AS 'Valor Precio Bruto COP'",
+                  "      ,[ValorAnticipo] AS 'Valor Anticipo'",
+                  "      ,[ValorNetoPedidoML] AS 'Valor Neto Pedido COP'",
+                  "      ,[ValorNetoPedidoME] AS 'Valor Neto Pedido USD'",
+                  "      ,[PrecioVentaBase] AS 'Valor Precio Venta Base'",
+                  "      ,[Cartera] AS 'Cartera'",
+                  "      ,[AprobadoCartera] AS 'Aprobado Cartera'",
+                  "      ,[DsSeccionCompra] AS 'Sección Compra'",
+                  "      ,[SkFechaLiberacionCartera] ",
+                  "      ,[DtFechaLiberacionCartera] AS 'Fecha de Liberación Cartera'",
+                  "      ,[SkFechaEnvioSolicitada] ",
+                  "      ,[DtFechaEnvioSolicitada] AS 'Fecha de Envio Solicitada'",
+                  "      ,[SkFechaRecepcionSolicitada]",
+                  "      ,[DtFechaRecepcionSolicitada] AS 'Fecha de Recepción Solicitada'",
+                  "      ,[SkFechaLiberacionPedido]",
+                  "      ,[DtFechaLiberacionPedido] AS 'Fecha de Liberación Pedido'",
+                  "      ,[SkFechaPreparacion]",
+                  "      ,[DtFechaPreparacion] AS 'Fecha de Preparación'",
+                  "      ,[SkFechaEnvioConfirmada]",
+                  "      ,[DtFechaEnvioConfirmada] AS 'Fecha de Envió Confirmada'",
+                  "      ,[SkTipoPedido]",
+                  "      ,[SkMotivoDevolucion]",
+                  "      ,[SkModoEntrega]",
+                  "      ,[SkFechaReservaInternacional]",
+                  "      ,[DtFechaReservaInternacional] AS 'Fecha de Reserva Internacional'",
+                  "      ,[SkFechaFacturacionInternacional]",
+                  "      ,[DtFechaFacturacionInternacional] AS 'Fecha de Factuaración Internacional'",
+                  "      ,[SkFechaEstimadaDespachoInternacional]",
+                  "      ,[DtFechaEstimadaDespachoInternacional] AS 'Fecha Estimada Despacho Internacional'",
+                  "      ,[SkFechaDespachoCEDI]",
+                  "      ,[DtFechaDespachoCEDI] AS 'Fecha Despacho CEDI'",
+                  "      ,[SkFechaConfirmacionCanal]",
+                  "      ,[DtFechaConfirmacionCanal] AS 'Fecha de Confirmación Canal'",
+                  "      ,[SkTipoPedidoVenta]",
+                  "      ,[SkFechaLlegadaILS]",
+                  "      ,[DtFechaLlegadaILS] AS 'Fecha llegada ILS'",
+                  "      ,[Consolidacion] AS 'Consolidación'",
+                  "      ,[Flete]",
+                  "      ,[EmisionDocumento] AS 'Emisión Documento'",
+                  "      ,[LugarDestino] AS 'Lugar Destino'",
+                  "      ,[TransporteTerrestrePuertoAeropuerto] AS 'Transporte Terestre Puerto Aéreo'",
+                  "      ,[NombreConductor] AS 'Nombre Conductor'",
+                  "      ,[PlacasVehiculo] AS 'Placas Vehiculo'",
+                  "      ,[NumeroPrecinto] AS 'Número Precinto'",
+                  "      ,[ModoTransporteComex] AS 'Modo Transporte Comex'",
+                  "      ,[TerminosNegociacion] AS 'Terminos de Negociación'",
+                  "      ,[Puerto] ",
+                  "      ,[ContactoExpo] AS 'Contacto Exportación'",
+                  "      ,[SkFechaEntregaCarpetaOI]",
+                  "      ,[DtFechaEntregaCarpetaOI] AS 'Fecha Entrega Carpeta OI'",
+                  "      ,[Marco]",
+                  "      ,[OrdenMarco] AS 'Orden Marco'",
+                  "      ,[OrdenMarcoOrigen] AS 'Orden Marco Origen'",
+                  "  FROM [NALSANI_DWH].[dbo].[FactPedidoVenta]",
+                  "  WHERE SkEstadoPedido <>4</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Unidades Solicitadas (PV)",
+            "expression": "SUM('M  Pedido Venta'[Unidades Pedidas])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Valor Solicitado COP(PV)",
+            "expression": " SUM('M  Pedido Venta'[Valor Neto Pedido COP])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Unidades Entregadas (PV)",
+            "expression": "SUM('M  Pedido Venta'[Unidades Recibidas])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Precio Unitario COP (PV)",
+            "expression": " SUM('M  Pedido Venta'[Valor Precio Unitario COP])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valor Entregado COP (PV)",
+            "expression": " 'M  Pedido Venta'[Unidades Entregadas (PV)]*'M  Pedido Venta'[Precio Unitario COP (PV)]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Unidades Pendientes (PV)",
+            "expression": " [Unidades Solicitadas (PV)]-[Unidades Entregadas (PV)]",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Valor Pendiente COP  (PV)",
+            "expression": "[Valor Solicitado COP(PV)]-[Unidades Entregadas (PV)]*[Precio Unitario COP (PV)]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Unidades Reservadas (PV)",
+            "expression": " SUM('M  Pedido Venta'[Unidades Reservadas])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Valor Reservado COP (PV)",
+            "expression": " [Precio Unitario COP (PV)]*[Unidades Reservadas (PV)]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "% Despacho (PV)",
+            "expression": " IFERROR(([Unidades Solicitadas (PV)]/[Unidades Entregadas (PV)]),BLANK())",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "% Reserva (PV)",
+            "expression": " IFERROR(([Unidades Reservadas (PV)]/[Unidades Solicitadas (PV)]),BLANK())",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Valor Solicitado USD(PV)",
+            "expression": " SUM('M  Pedido Venta'[Valor Neto Pedido USD])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Cantidad Cajas (PV)",
+            "expression": " sum([Cantidad Cajas])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Precio Bruto (COP)",
+            "expression": "SUM([Valor Precio Bruto COP])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Metricas Generales",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT  [SkPedidoVenta]",
+              "      ,[SkFechaPedidoVenta]",
+              "      ,[SkFechaEnvioPedidoVenta]",
+              "      ,[SkEstructuraCanal]",
+              "      ,[SkCentroCosto]",
+              "      ,[SkEstadoPedido]",
+              "      ,[SkEstadoLogistico]",
+              "      ,[SkVendedor]",
+              "      ,[SkMoneda]",
+              "      ,[SkTransportadora]",
+              "      ,[SkProducto]",
+              "      ,[SkCliente]",
+              "      ,[DtPedidoVenta] AS 'Fecha Pedido Venta'",
+              "      ,[DtEnvioPedidoVenta] AS 'Fecha de Envio'",
+              "      ,[NumPedidoVenta] AS 'Número Pedido de Venta'",
+              "      ,[NumLineaPedidoVenta] AS 'Número Línea Pedido de Venta'",
+              "      ,[NumPedidoenCadenas] AS 'Número Pedido en Cadenas'",
+              "      ,[NumPedidoCliente] AS 'Número Pedido Cliente'",
+              "      ,[NumGuia] AS 'Número Guía'",
+              "      ,[NumLote] AS 'Número Lote'",
+              "      ,[CantUnidadesPedidas] AS 'Unidades Pedidas'",
+              "      ,[CantUnidadesReservadas] AS 'Unidades Reservadas'",
+              "      ,[CantUnidadesRecibidas] AS 'Unidades Recibidas'",
+              "      ,[CantUnidadesPendientes] AS 'Cantidad Unidades Pendientes'",
+              "      ,[CantCajas] AS 'Cantidad Cajas'",
+              "      ,[ValorPrecioUnitarioML] AS 'Valor Precio Unitario COP'",
+              "      ,[ValorPrecioBrutoML] AS 'Valor Precio Bruto COP'",
+              "      ,[ValorAnticipo] AS 'Valor Anticipo'",
+              "      ,[ValorNetoPedidoML] AS 'Valor Neto Pedido COP'",
+              "      ,[ValorNetoPedidoME] AS 'Valor Neto Pedido USD'",
+              "      ,[PrecioVentaBase] AS 'Valor Precio Venta Base'",
+              "      ,[Cartera] AS 'Cartera'",
+              "      ,[AprobadoCartera] AS 'Aprobado Cartera'",
+              "      ,[DsSeccionCompra] AS 'Sección Compra'",
+              "      ,[SkFechaLiberacionCartera] ",
+              "      ,[DtFechaLiberacionCartera] AS 'Fecha de Liberación Cartera'",
+              "      ,[SkFechaEnvioSolicitada] ",
+              "      ,[DtFechaEnvioSolicitada] AS 'Fecha de Envio Solicitada'",
+              "      ,[SkFechaRecepcionSolicitada]",
+              "      ,[DtFechaRecepcionSolicitada] AS 'Fecha de Recepción Solicitada'",
+              "      ,[SkFechaLiberacionPedido]",
+              "      ,[DtFechaLiberacionPedido] AS 'Fecha de Liberación Pedido'",
+              "      ,[SkFechaPreparacion]",
+              "      ,[DtFechaPreparacion] AS 'Fecha de Preparación'",
+              "      ,[SkFechaEnvioConfirmada]",
+              "      ,[DtFechaEnvioConfirmada] AS 'Fecha de Envió Confirmada'",
+              "      ,[SkTipoPedido]",
+              "      ,[SkMotivoDevolucion]",
+              "      ,[SkModoEntrega]",
+              "      ,[SkFechaReservaInternacional]",
+              "      ,[DtFechaReservaInternacional] AS 'Fecha de Reserva Internacional'",
+              "      ,[SkFechaFacturacionInternacional]",
+              "      ,[DtFechaFacturacionInternacional] AS 'Fecha de Factuaración Internacional'",
+              "      ,[SkFechaEstimadaDespachoInternacional]",
+              "      ,[DtFechaEstimadaDespachoInternacional] AS 'Fecha Estimada Despacho Internacional'",
+              "      ,[SkFechaDespachoCEDI]",
+              "      ,[DtFechaDespachoCEDI] AS 'Fecha Despacho CEDI'",
+              "      ,[SkFechaConfirmacionCanal]",
+              "      ,[DtFechaConfirmacionCanal] AS 'Fecha de Confirmación Canal'",
+              "      ,[SkTipoPedidoVenta]",
+              "      ,[SkFechaLlegadaILS]",
+              "      ,[DtFechaLlegadaILS] AS 'Fecha llegada ILS'",
+              "      ,[Consolidacion] AS 'Consolidación'",
+              "      ,[Flete]",
+              "      ,[EmisionDocumento] AS 'Emisión Documento'",
+              "      ,[LugarDestino] AS 'Lugar Destino'",
+              "      ,[TransporteTerrestrePuertoAeropuerto] AS 'Transporte Terestre Puerto Aéreo'",
+              "      ,[NombreConductor] AS 'Nombre Conductor'",
+              "      ,[PlacasVehiculo] AS 'Placas Vehiculo'",
+              "      ,[NumeroPrecinto] AS 'Número Precinto'",
+              "      ,[ModoTransporteComex] AS 'Modo Transporte Comex'",
+              "      ,[TerminosNegociacion] AS 'Terminos de Negociación'",
+              "      ,[Puerto] ",
+              "      ,[ContactoExpo] AS 'Contacto Exportación'",
+              "      ,[SkFechaEntregaCarpetaOI]",
+              "      ,[DtFechaEntregaCarpetaOI] AS 'Fecha Entrega Carpeta OI'",
+              "      ,[Marco]",
+              "      ,[OrdenMarco] AS 'Orden Marco'",
+              "      ,[OrdenMarcoOrigen] AS 'Orden Marco Origen'",
+              "  FROM [NALSANI_DWH].[dbo].[FactPedidoVenta]",
+              "  WHERE SkEstadoPedido <>4"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactPedidoVenta"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkPedidoVenta]",
+              "      ,[SkFechaPedidoVenta]",
+              "      ,[SkFechaEnvioPedidoVenta]",
+              "      ,[SkEstructuraCanal]",
+              "      ,[SkCentroCosto]",
+              "      ,[SkEstadoPedido]",
+              "      ,[SkEstadoLogistico]",
+              "      ,[SkVendedor]",
+              "      ,[SkMoneda]",
+              "      ,[SkTransportadora]",
+              "      ,[SkProducto]",
+              "      ,[SkCliente]",
+              "      ,[DtPedidoVenta] AS 'Fecha Pedido Venta'",
+              "      ,[DtEnvioPedidoVenta] AS 'Fecha de Envio'",
+              "      ,[NumPedidoVenta] AS 'Número Pedido de Venta'",
+              "      ,[NumLineaPedidoVenta] AS 'Número Línea Pedido de Venta'",
+              "      ,[NumPedidoenCadenas] AS 'Número Pedido en Cadenas'",
+              "      ,[NumPedidoCliente] AS 'Número Pedido Cliente'",
+              "      ,[NumGuia] AS 'Número Guía'",
+              "      ,[NumLote] AS 'Número Lote'",
+              "      ,[CantUnidadesPedidas] AS 'Unidades Pedidas'",
+              "      ,[CantUnidadesReservadas] AS 'Unidades Reservadas'",
+              "      ,[CantUnidadesRecibidas] AS 'Unidades Recibidas'",
+              "      ,[CantUnidadesPendientes] AS 'Cantidad Unidades Pendientes'",
+              "      ,[CantCajas] AS 'Cantidad Cajas'",
+              "      ,[ValorPrecioUnitarioML] AS 'Valor Precio Unitario COP'",
+              "      ,[ValorPrecioBrutoML] AS 'Valor Precio Bruto COP'",
+              "      ,[ValorAnticipo] AS 'Valor Anticipo'",
+              "      ,[ValorNetoPedidoML] AS 'Valor Neto Pedido COP'",
+              "      ,[ValorNetoPedidoME] AS 'Valor Neto Pedido USD'",
+              "      ,[PrecioVentaBase] AS 'Valor Precio Venta Base'",
+              "      ,[Cartera] AS 'Cartera'",
+              "      ,[AprobadoCartera] AS 'Aprobado Cartera'",
+              "      ,[DsSeccionCompra] AS 'Sección Compra'",
+              "      ,[SkFechaLiberacionCartera] ",
+              "      ,[DtFechaLiberacionCartera] AS 'Fecha de Liberación Cartera'",
+              "      ,[SkFechaEnvioSolicitada] ",
+              "      ,[DtFechaEnvioSolicitada] AS 'Fecha de Envio Solicitada'",
+              "      ,[SkFechaRecepcionSolicitada]",
+              "      ,[DtFechaRecepcionSolicitada] AS 'Fecha de Recepción Solicitada'",
+              "      ,[SkFechaLiberacionPedido]",
+              "      ,[DtFechaLiberacionPedido] AS 'Fecha de Liberación Pedido'",
+              "      ,[SkFechaPreparacion]",
+              "      ,[DtFechaPreparacion] AS 'Fecha de Preparación'",
+              "      ,[SkFechaEnvioConfirmada]",
+              "      ,[DtFechaEnvioConfirmada] AS 'Fecha de Envió Confirmada'",
+              "      ,[SkTipoPedido]",
+              "      ,[SkMotivoDevolucion]",
+              "      ,[SkModoEntrega]",
+              "      ,[SkFechaReservaInternacional]",
+              "      ,[DtFechaReservaInternacional] AS 'Fecha de Reserva Internacional'",
+              "      ,[SkFechaFacturacionInternacional]",
+              "      ,[DtFechaFacturacionInternacional] AS 'Fecha de Factuaración Internacional'",
+              "      ,[SkFechaEstimadaDespachoInternacional]",
+              "      ,[DtFechaEstimadaDespachoInternacional] AS 'Fecha Estimada Despacho Internacional'",
+              "      ,[SkFechaDespachoCEDI]",
+              "      ,[DtFechaDespachoCEDI] AS 'Fecha Despacho CEDI'",
+              "      ,[SkFechaConfirmacionCanal]",
+              "      ,[DtFechaConfirmacionCanal] AS 'Fecha de Confirmación Canal'",
+              "      ,[SkTipoPedidoVenta]",
+              "      ,[SkFechaLlegadaILS]",
+              "      ,[DtFechaLlegadaILS] AS 'Fecha llegada ILS'",
+              "      ,[Consolidacion] AS 'Consolidación'",
+              "      ,[Flete]",
+              "      ,[EmisionDocumento] AS 'Emisión Documento'",
+              "      ,[LugarDestino] AS 'Lugar Destino'",
+              "      ,[TransporteTerrestrePuertoAeropuerto] AS 'Transporte Terestre Puerto Aéreo'",
+              "      ,[NombreConductor] AS 'Nombre Conductor'",
+              "      ,[PlacasVehiculo] AS 'Placas Vehiculo'",
+              "      ,[NumeroPrecinto] AS 'Número Precinto'",
+              "      ,[ModoTransporteComex] AS 'Modo Transporte Comex'",
+              "      ,[TerminosNegociacion] AS 'Terminos de Negociación'",
+              "      ,[Puerto] ",
+              "      ,[ContactoExpo] AS 'Contacto Exportación'",
+              "      ,[SkFechaEntregaCarpetaOI]",
+              "      ,[DtFechaEntregaCarpetaOI] AS 'Fecha Entrega Carpeta OI'",
+              "      ,[Marco]",
+              "      ,[OrdenMarco] AS 'Orden Marco'",
+              "      ,[OrdenMarcoOrigen] AS 'Orden Marco Origen'",
+              "  FROM [NALSANI_DWH].[dbo].[FactPedidoVenta]",
+              "  WHERE SkEstadoPedido <>4</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Tiempo",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "SkFecha",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFecha",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Fecha",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Código del Día",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Día",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día de la Semana",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día de la Semana",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes del Año Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes del Año Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semana del Año Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semana del Año Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Trimestre Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Trimestre Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Trimestre Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Trimestre Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Semestre Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Semestre Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semestre Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semestre Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Festivos",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Festivos",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Totto Loco",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Totto Loco",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Temporada",
+            "dataType": "string",
+            "sourceColumn": "Temporada",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": ".Mes Comercial",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "FORMAT('D  Tiempo'[Código del Mes del Año Comercial],\"00\")&\" \"&'D  Tiempo'[Mes del Año Comercial]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Tiempo",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Comercial",
+            "levels": [
+              {
+                "name": "Trimestre Comercial",
+                "ordinal": 2,
+                "column": "Trimestre Comercial"
+              },
+              {
+                "name": "Semestre Comercial",
+                "ordinal": 1,
+                "column": "Semestre Comercial"
+              },
+              {
+                "name": " Año Comercial",
+                "ordinal": 0,
+                "column": "Código del Año Comercial"
+              },
+              {
+                "name": "Semana Comercial",
+                "ordinal": 4,
+                "column": "Semana del Año Comercial"
+              },
+              {
+                "name": "Día",
+                "ordinal": 6,
+                "column": "Día"
+              },
+              {
+                "name": "Día de la Semana",
+                "ordinal": 5,
+                "column": "Día de la Semana"
+              },
+              {
+                "name": ".Mes Comercial",
+                "ordinal": 3,
+                "column": ".Mes Comercial"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VwTiempo"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Tipo Pedido",
+        "columns": [
+          {
+            "name": "SkTipoPedido",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTipoPedido",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Tipo Pedido",
+            "dataType": "string",
+            "sourceColumn": "IdTipoPedido",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Tipo Pedido",
+            "dataType": "string",
+            "sourceColumn": "DsTipoPedido",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Tipo Pedido",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimTipoPedido].* FROM [dbo].[DimTipoPedido] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimTipoPedido].* FROM [dbo].[DimTipoPedido] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimTipoPedido"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Motivo Devolución",
+        "columns": [
+          {
+            "name": "SkMotivoDevolucion",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMotivoDevolucion",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Motivo Devolución",
+            "dataType": "string",
+            "sourceColumn": "IdMotivoDevolucion",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Motivo Devolución",
+            "dataType": "string",
+            "sourceColumn": "DsMotivoDevolucion",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Grupo Motivo Devolución",
+            "dataType": "string",
+            "sourceColumn": "IdGrupoMotivoDevolucion",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Grupo Motivo Devlución",
+            "dataType": "string",
+            "sourceColumn": "DsGrupoMotivoDevolucion",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Motivo Devolución",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimMotivoDevolucion].* FROM [dbo].[DimMotivoDevolucion] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimMotivoDevolucion].* FROM [dbo].[DimMotivoDevolucion] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimMotivoDevolucion"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Modo de Entrega",
+        "columns": [
+          {
+            "name": "SkModoEntrega",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkModoEntrega",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Modo de Entrega",
+            "dataType": "string",
+            "sourceColumn": "IdModoEntrega",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Modo de Entrega",
+            "dataType": "string",
+            "sourceColumn": "DsModoEntrega",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Modo de Entrega",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimModoEntrega].[SkModoEntrega],[dbo].[DimModoEntrega].[IdModoEntrega],[dbo].[DimModoEntrega].[DsModoEntrega] FROM [dbo].[DimModoEntrega] ",
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkModoEntrega</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>105</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdModoEntrega</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>104</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsModoEntrega</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>106</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>83</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>103</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkModoEntrega</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdModoEntrega</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsModoEntrega</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimModoEntrega].[SkModoEntrega],[dbo].[DimModoEntrega].[IdModoEntrega],[dbo].[DimModoEntrega].[DsModoEntrega] FROM [dbo].[DimModoEntrega] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimModoEntrega"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkModoEntrega</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>105</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdModoEntrega</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>104</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsModoEntrega</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>106</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>83</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>103</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkModoEntrega</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdModoEntrega</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsModoEntrega</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D Tipo Pedido de Venta",
+        "columns": [
+          {
+            "name": "SkTipoPedidoVenta",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkTipoPedidoVenta",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Tipo Pedido de Venta",
+            "dataType": "string",
+            "sourceColumn": "IdTipoPedidoVenta",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Tipo Pedido de Venta",
+            "dataType": "string",
+            "sourceColumn": "DsTipoPedidoVenta",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Tipo Pedido de Venta",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimTipoPedidoVenta].[SkTipoPedidoVenta],[dbo].[DimTipoPedidoVenta].[IdTipoPedidoVenta],[dbo].[DimTipoPedidoVenta].[DsTipoPedidoVenta] FROM [dbo].[DimTipoPedidoVenta] ",
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkTipoPedidoVenta</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>121</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdTipoPedidoVenta</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>120</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsTipoPedidoVenta</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>125</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>83</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>103</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkTipoPedidoVenta</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdTipoPedidoVenta</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsTipoPedidoVenta</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimTipoPedidoVenta].[SkTipoPedidoVenta],[dbo].[DimTipoPedidoVenta].[IdTipoPedidoVenta],[dbo].[DimTipoPedidoVenta].[DsTipoPedidoVenta] FROM [dbo].[DimTipoPedidoVenta] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimTipoPedidoVenta"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkTipoPedidoVenta</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>121</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdTipoPedidoVenta</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>120</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsTipoPedidoVenta</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>125</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>83</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>103</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkTipoPedidoVenta</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdTipoPedidoVenta</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsTipoPedidoVenta</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D Estructura Canal",
+        "columns": [
+          {
+            "name": "SkEstructuraCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstructuraCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkGeografiaEstructuraCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkGeografiaEstructuraCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Canal",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Seg1. SubCanal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg1. SubCanal",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Seg2. Regional",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg2. Regional",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Seg3. Zonas",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg3. Zonas",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Seg4. Tipología",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg1. Tipología",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Seg5. Marca",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg5. Marca",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Seg6. Ubicación Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg6. Ubicación Ciudad",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Zona",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Zona",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Estructura Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Estructura Canal",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Regional",
+            "dataType": "string",
+            "sourceColumn": "Regional",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Dirección Comercial",
+            "dataType": "string",
+            "sourceColumn": "Dirección Comercial",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "M2 Exhibición",
+            "dataType": "double",
+            "sourceColumn": "M2 Exhibición",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "M2 Totto",
+            "dataType": "double",
+            "sourceColumn": "M2 Totto",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "M2 Totto Tú",
+            "dataType": "double",
+            "sourceColumn": "M2 Totto Tú",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Total M2",
+            "dataType": "double",
+            "sourceColumn": "Totla M2",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Responsable",
+            "dataType": "string",
+            "sourceColumn": "Responsable",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Latitud",
+            "dataType": "double",
+            "sourceColumn": "Latitud",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "Longitud",
+            "dataType": "double",
+            "sourceColumn": "Longitud",
+            "sourceProviderType": "Double"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "D Estructura Canal",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT [SkEstructuraCanal]",
+                "\t ,[SkGeografiaEstructuraCanal]",
+                "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+                "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+                "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+                "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+                "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+                "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+                "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+                "\t  ,[Zona] AS 'Zona'",
+                "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+                "\t  ",
+                "\t  --ATRIBUTOS",
+                "\t ,[RegionComercial] AS 'Regional'",
+                "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+                "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+                "     ,[M2Totto] AS 'M2 Totto'",
+                "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+                "\t ,[TotalM2Comercial] AS 'Totla M2'",
+                "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+                "\t ,[Latitud1] AS 'Latitud'",
+                "\t ,[Longitud1] AS 'Longitud'",
+                "\t     ",
+                "",
+                "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+                "       --,[NitFranquiciado]",
+                "\t    --,[DsFranquiciado]",
+                "      --,[NitFranquiciadoAnterior]",
+                "       --,[CuentaCliente]",
+                "\t   ",
+                "",
+                "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkEstructuraCanal]",
+                  "\t ,[SkGeografiaEstructuraCanal]",
+                  "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+                  "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+                  "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+                  "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+                  "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+                  "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+                  "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+                  "\t  ,[Zona] AS 'Zona'",
+                  "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+                  "\t  ",
+                  "\t  --ATRIBUTOS",
+                  "\t ,[RegionComercial] AS 'Regional'",
+                  "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+                  "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+                  "     ,[M2Totto] AS 'M2 Totto'",
+                  "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+                  "\t ,[TotalM2Comercial] AS 'Totla M2'",
+                  "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+                  "\t ,[Latitud1] AS 'Latitud'",
+                  "\t ,[Longitud1] AS 'Longitud'",
+                  "\t     ",
+                  "",
+                  "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+                  "       --,[NitFranquiciado]",
+                  "\t    --,[DsFranquiciado]",
+                  "      --,[NitFranquiciadoAnterior]",
+                  "       --,[CuentaCliente]",
+                  "\t   ",
+                  "",
+                  "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": ". Estructura de Canal",
+            "levels": [
+              {
+                "name": "Canal",
+                "ordinal": 0,
+                "column": "Canal"
+              },
+              {
+                "name": "Seg1. SubCanal",
+                "ordinal": 1,
+                "column": "Seg1. SubCanal"
+              },
+              {
+                "name": "Seg2. Regional",
+                "ordinal": 2,
+                "column": "Seg2. Regional"
+              },
+              {
+                "name": "Seg3. Zonas",
+                "ordinal": 3,
+                "column": "Seg3. Zonas"
+              },
+              {
+                "name": "Seg4. Tipología",
+                "ordinal": 4,
+                "column": "Seg4. Tipología"
+              },
+              {
+                "name": "Seg5. Marca",
+                "ordinal": 5,
+                "column": "Seg5. Marca"
+              },
+              {
+                "name": "Seg6. Ubicación Ciudad",
+                "ordinal": 6,
+                "column": "Seg6. Ubicación Ciudad"
+              },
+              {
+                "name": "Zona",
+                "ordinal": 7,
+                "column": "Zona"
+              },
+              {
+                "name": "Estructura Canal",
+                "ordinal": 8,
+                "column": "Estructura Canal"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT [SkEstructuraCanal]",
+              "\t ,[SkGeografiaEstructuraCanal]",
+              "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+              "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+              "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+              "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+              "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+              "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+              "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+              "\t  ,[Zona] AS 'Zona'",
+              "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+              "\t  ",
+              "\t  --ATRIBUTOS",
+              "\t ,[RegionComercial] AS 'Regional'",
+              "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+              "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+              "     ,[M2Totto] AS 'M2 Totto'",
+              "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+              "\t ,[TotalM2Comercial] AS 'Totla M2'",
+              "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+              "\t ,[Latitud1] AS 'Latitud'",
+              "\t ,[Longitud1] AS 'Longitud'",
+              "\t     ",
+              "",
+              "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+              "       --,[NitFranquiciado]",
+              "\t    --,[DsFranquiciado]",
+              "      --,[NitFranquiciadoAnterior]",
+              "       --,[CuentaCliente]",
+              "\t   ",
+              "",
+              "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "D Estructura Canal"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkEstructuraCanal]",
+              "\t ,[SkGeografiaEstructuraCanal]",
+              "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+              "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+              "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+              "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+              "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+              "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+              "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+              "\t  ,[Zona] AS 'Zona'",
+              "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+              "\t  ",
+              "\t  --ATRIBUTOS",
+              "\t ,[RegionComercial] AS 'Regional'",
+              "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+              "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+              "     ,[M2Totto] AS 'M2 Totto'",
+              "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+              "\t ,[TotalM2Comercial] AS 'Totla M2'",
+              "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+              "\t ,[Latitud1] AS 'Latitud'",
+              "\t ,[Longitud1] AS 'Longitud'",
+              "\t     ",
+              "",
+              "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+              "       --,[NitFranquiciado]",
+              "\t    --,[DsFranquiciado]",
+              "      --,[NitFranquiciadoAnterior]",
+              "       --,[CuentaCliente]",
+              "\t   ",
+              "",
+              "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Geografía",
+        "columns": [
+          {
+            "name": "SkGeografia",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkGeografia",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Geografía",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdGeografia",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdCiudad",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "NmCiudad",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Departamento",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdDepartamento",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Departamento",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "NmDepartamento",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código País",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IdPais",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "País",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "NmPais",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Postal",
+            "dataType": "string",
+            "sourceColumn": "CodigoPostal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Población",
+            "dataType": "double",
+            "sourceColumn": "Poblacion",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimGeografia",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimGeografia].* FROM [dbo].[DimGeografia] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": ".Geografía",
+            "levels": [
+              {
+                "name": "País",
+                "ordinal": 0,
+                "column": "País"
+              },
+              {
+                "name": "Departamento",
+                "ordinal": 1,
+                "column": "Departamento"
+              },
+              {
+                "name": "Ciudad",
+                "ordinal": 2,
+                "column": "Ciudad"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimGeografia].* FROM [dbo].[DimGeografia] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimGeografia"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "28ba4da9-d155-41ae-9f5f-4c02930f39e2",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkCentroCosto",
+        "toTable": "D  Centro Costo",
+        "toColumn": "SkCentroCosto"
+      },
+      {
+        "name": "444bf9b9-5541-4c5d-be20-1c77019bd3af",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkCliente",
+        "toTable": "D  Cliente",
+        "toColumn": "SkCliente"
+      },
+      {
+        "name": "10b0c773-7cd1-4bbd-8519-8ff4f2be71f3",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkEstadoLogistico",
+        "toTable": "D  Estado Logístico",
+        "toColumn": "SkEstadoLogistico"
+      },
+      {
+        "name": "2ac2f33c-8cbd-4690-8e1d-1a18ac7e21b0",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkEstadoPedido",
+        "toTable": "D  Estado Pedido",
+        "toColumn": "SkEstadoPedido"
+      },
+      {
+        "name": "3face52f-2205-4990-8dd6-e3a6cbf695d6",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkMoneda",
+        "toTable": "D  Moneda",
+        "toColumn": "SkMoneda"
+      },
+      {
+        "name": "17bc8f94-5f7e-449a-a104-56a1e3ef7814",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkProducto",
+        "toTable": "D  Producto",
+        "toColumn": "SkProducto"
+      },
+      {
+        "name": "7435f2ae-13a1-4df2-a9b5-b051a3b9637d",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkTransportadora",
+        "toTable": "D  Transportadora",
+        "toColumn": "SkTransportadora"
+      },
+      {
+        "name": "24f61316-4ae6-41e7-b19e-a62daafda6a2",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkVendedor",
+        "toTable": "D Vendedor",
+        "toColumn": "SkVendedor"
+      },
+      {
+        "name": "c20f463e-1355-4bb2-964a-e0a0daaba5e3",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkFechaPedidoVenta",
+        "toTable": "D  Tiempo",
+        "toColumn": "SkFecha"
+      },
+      {
+        "name": "c6eec21d-6758-4fea-8f87-67a68672c045",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkTipoPedido",
+        "toTable": "D  Tipo Pedido",
+        "toColumn": "SkTipoPedido"
+      },
+      {
+        "name": "2bfb5dd8-7c57-4b88-9fcf-a32095e844d4",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkMotivoDevolucion",
+        "toTable": "D  Motivo Devolución",
+        "toColumn": "SkMotivoDevolucion"
+      },
+      {
+        "name": "f2a8991d-d99a-4725-b173-93e903ca9c79",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkModoEntrega",
+        "toTable": "D  Modo de Entrega",
+        "toColumn": "SkModoEntrega"
+      },
+      {
+        "name": "3714066e-9730-4d97-836d-228b63363d09",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkTipoPedidoVenta",
+        "toTable": "D Tipo Pedido de Venta",
+        "toColumn": "SkTipoPedidoVenta"
+      },
+      {
+        "name": "65ae172b-583e-46c5-b611-6bac00886662",
+        "fromTable": "M  Pedido Venta",
+        "fromColumn": "SkEstructuraCanal",
+        "toTable": "D Estructura Canal",
+        "toColumn": "SkEstructuraCanal"
+      },
+      {
+        "name": "02761c1c-dff5-4cb7-8973-123d14fedab1",
+        "fromTable": "D Estructura Canal",
+        "fromColumn": "SkGeografiaEstructuraCanal",
+        "toTable": "D  Geografía",
+        "toColumn": "SkGeografia"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

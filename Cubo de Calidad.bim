@@ -1,0 +1,1823 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "NALSANI_DWH",
+        "connectionString": "Provider=SQLNCLI11;Data Source=30.0.0.12;Initial Catalog=NALSANI_DWH;User ID=consulta_ssrs;Persist Security Info=true",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "D  Estado Inspección Inventario",
+        "columns": [
+          {
+            "name": "SkEstadoInventarioInspeccion",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstadoInventarioInspeccion",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Estado Inspección Inventario",
+            "dataType": "string",
+            "sourceColumn": "IdEstadoInventarioInspeccion",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Estado Inspección Inventario",
+            "dataType": "string",
+            "sourceColumn": "DsEstadoInventarioInspeccion",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Bloqueo",
+            "dataType": "string",
+            "sourceColumn": "Bloqueo",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimEstadoInventarioInspeccion",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimEstadoInventarioInspeccion].* FROM [dbo].[DimEstadoInventarioInspeccion] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimEstadoInventarioInspeccion].* FROM [dbo].[DimEstadoInventarioInspeccion] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimEstadoInventarioInspeccion"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Estructura Canal",
+        "columns": [
+          {
+            "name": "SkEstructuraCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstructuraCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Zona",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Zona",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Canal"
+          },
+          {
+            "name": "Seg1. SubCanal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg1. SubCanal"
+          },
+          {
+            "name": "Seg2. Regional",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg2. Regional"
+          },
+          {
+            "name": "Seg3. Zonas",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg3. Zonas"
+          },
+          {
+            "name": "Seg4. Tipología",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg1. Tipología"
+          },
+          {
+            "name": "Seg5. Marca",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg5. Marca"
+          },
+          {
+            "name": "Seg6. Ubicación Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg6. Ubicación Ciudad"
+          },
+          {
+            "name": "Estructura Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Estructura Canal"
+          },
+          {
+            "name": "Regional",
+            "dataType": "string",
+            "sourceColumn": "Regional"
+          },
+          {
+            "name": "Dirección Comercial",
+            "dataType": "string",
+            "sourceColumn": "Dirección Comercial"
+          },
+          {
+            "name": "M2 Exhibición",
+            "dataType": "double",
+            "sourceColumn": "M2 Exhibición"
+          },
+          {
+            "name": "M2 Totto",
+            "dataType": "double",
+            "sourceColumn": "M2 Totto"
+          },
+          {
+            "name": "M2 Totto Tú",
+            "dataType": "double",
+            "sourceColumn": "M2 Totto Tú"
+          },
+          {
+            "name": "Total M2",
+            "dataType": "double",
+            "sourceColumn": "Totla M2"
+          },
+          {
+            "name": "Responsable",
+            "dataType": "string",
+            "sourceColumn": "Responsable"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimEstructuraCanal",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT [SkEstructuraCanal]",
+                "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+                "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+                "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+                "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+                "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+                "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+                "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+                "\t  ,[Zona] AS 'Zona'",
+                "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+                "\t  ",
+                "\t  --ATRIBUTOS",
+                "\t ,[RegionComercial] AS 'Regional'",
+                "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+                "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+                "     ,[M2Totto] AS 'M2 Totto'",
+                "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+                "\t ,[TotalM2Comercial] AS 'Totla M2'",
+                "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+                "\t     ",
+                "",
+                "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+                "       --,[NitFranquiciado]",
+                "\t    --,[DsFranquiciado]",
+                "      --,[NitFranquiciadoAnterior]",
+                "       --,[CuentaCliente]",
+                "",
+                "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkEstructuraCanal]",
+                  "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+                  "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+                  "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+                  "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+                  "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+                  "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+                  "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+                  "\t  ,[Zona] AS 'Zona'",
+                  "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+                  "\t  ",
+                  "\t  --ATRIBUTOS",
+                  "\t ,[RegionComercial] AS 'Regional'",
+                  "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+                  "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+                  "     ,[M2Totto] AS 'M2 Totto'",
+                  "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+                  "\t ,[TotalM2Comercial] AS 'Totla M2'",
+                  "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+                  "\t     ",
+                  "",
+                  "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+                  "       --,[NitFranquiciado]",
+                  "\t    --,[DsFranquiciado]",
+                  "      --,[NitFranquiciadoAnterior]",
+                  "       --,[CuentaCliente]",
+                  "",
+                  "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Estructura de Canal",
+            "levels": [
+              {
+                "name": "Canal",
+                "ordinal": 0,
+                "column": "Canal"
+              },
+              {
+                "name": "Seg1. SubCanal",
+                "ordinal": 1,
+                "column": "Seg1. SubCanal"
+              },
+              {
+                "name": "Seg2. Regional",
+                "ordinal": 2,
+                "column": "Seg2. Regional"
+              },
+              {
+                "name": "Seg3. Zonas",
+                "ordinal": 3,
+                "column": "Seg3. Zonas"
+              },
+              {
+                "name": "Seg4. Tipología",
+                "ordinal": 4,
+                "column": "Seg4. Tipología"
+              },
+              {
+                "name": "Seg5. Marca",
+                "ordinal": 5,
+                "column": "Seg5. Marca"
+              },
+              {
+                "name": "Seg6. Ubicación Ciudad",
+                "ordinal": 6,
+                "column": "Seg6. Ubicación Ciudad"
+              },
+              {
+                "name": "Zona",
+                "ordinal": 7,
+                "column": "Zona"
+              },
+              {
+                "name": "Estructura Canal",
+                "ordinal": 8,
+                "column": "Estructura Canal"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT [SkEstructuraCanal]",
+              "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+              "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+              "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+              "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+              "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+              "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+              "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+              "\t  ,[Zona] AS 'Zona'",
+              "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+              "\t  ",
+              "\t  --ATRIBUTOS",
+              "\t ,[RegionComercial] AS 'Regional'",
+              "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+              "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+              "     ,[M2Totto] AS 'M2 Totto'",
+              "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+              "\t ,[TotalM2Comercial] AS 'Totla M2'",
+              "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+              "\t     ",
+              "",
+              "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+              "       --,[NitFranquiciado]",
+              "\t    --,[DsFranquiciado]",
+              "      --,[NitFranquiciadoAnterior]",
+              "       --,[CuentaCliente]",
+              "",
+              "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimEstructuraCanal"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkEstructuraCanal]",
+              "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+              "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+              "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+              "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+              "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+              "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+              "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+              "\t  ,[Zona] AS 'Zona'",
+              "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+              "\t  ",
+              "\t  --ATRIBUTOS",
+              "\t ,[RegionComercial] AS 'Regional'",
+              "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+              "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+              "     ,[M2Totto] AS 'M2 Totto'",
+              "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+              "\t ,[TotalM2Comercial] AS 'Totla M2'",
+              "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+              "\t     ",
+              "",
+              "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+              "       --,[NitFranquiciado]",
+              "\t    --,[DsFranquiciado]",
+              "      --,[NitFranquiciadoAnterior]",
+              "       --,[CuentaCliente]",
+              "",
+              "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Grupo de Prueba",
+        "columns": [
+          {
+            "name": "SkGrupoPrueba",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkGrupoPrueba",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Grupo de Prueba",
+            "dataType": "string",
+            "sourceColumn": "IdGrupoPrueba",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Grupo de Prueba",
+            "dataType": "string",
+            "sourceColumn": "DsGrupoPrueba",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Nivel de Calidad Aceptable",
+            "dataType": "double",
+            "sourceColumn": "NivelCalidadAceptable",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Muestreo de Artículos",
+            "dataType": "string",
+            "sourceColumn": "MuestreoArticulos",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Prueba Destructiva",
+            "dataType": "string",
+            "sourceColumn": "PruebaDestructiva",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimGrupoPrueba",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimGrupoPrueba].* FROM [dbo].[DimGrupoPrueba] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimGrupoPrueba].* FROM [dbo].[DimGrupoPrueba] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimGrupoPrueba"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Producto",
+        "columns": [
+          {
+            "name": "SkProducto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProducto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Nivel Principal Producto",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Nivel Principal Producto"
+          },
+          {
+            "name": "Marca",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Marca"
+          },
+          {
+            "name": "Unidad de Negocio",
+            "dataType": "string",
+            "sourceColumn": "Unidad de Negocio"
+          },
+          {
+            "name": "Vertical",
+            "dataType": "string",
+            "sourceColumn": "Vertical"
+          },
+          {
+            "name": "Línea de Negocio",
+            "dataType": "string",
+            "sourceColumn": "Línea de Negocio"
+          },
+          {
+            "name": "Genéro",
+            "dataType": "string",
+            "sourceColumn": "Genéro"
+          },
+          {
+            "name": "Clase",
+            "dataType": "string",
+            "sourceColumn": "Clase"
+          },
+          {
+            "name": "Subclase",
+            "dataType": "string",
+            "sourceColumn": "Subclase"
+          },
+          {
+            "name": "Colección",
+            "dataType": "string",
+            "sourceColumn": "Colección"
+          },
+          {
+            "name": "Audiencia",
+            "dataType": "string",
+            "sourceColumn": "Audiencia"
+          },
+          {
+            "name": "Ciclo de Vida",
+            "dataType": "string",
+            "sourceColumn": "Ciclo de Vida"
+          },
+          {
+            "name": "Código Producto Base",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Base"
+          },
+          {
+            "name": "Código Producto Genérico",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Genérico"
+          },
+          {
+            "name": "Código Producto Largo",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Largo"
+          },
+          {
+            "name": "Nombre del Producto",
+            "dataType": "string",
+            "sourceColumn": "Producto"
+          },
+          {
+            "name": "Gama Color Producto",
+            "dataType": "string",
+            "sourceColumn": "Gama Color Producto"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color"
+          },
+          {
+            "name": "Talla",
+            "dataType": "string",
+            "sourceColumn": "Talla"
+          },
+          {
+            "name": "Dimensiones",
+            "dataType": "string",
+            "sourceColumn": "Dimensiones"
+          },
+          {
+            "name": "EAN",
+            "dataType": "string",
+            "sourceColumn": "EAN"
+          },
+          {
+            "name": "Sublínea",
+            "dataType": "string",
+            "sourceColumn": "Sublínea"
+          },
+          {
+            "name": "Dotación",
+            "dataType": "string",
+            "sourceColumn": "Dotación"
+          },
+          {
+            "name": "Origen",
+            "dataType": "string",
+            "sourceColumn": "Origen"
+          },
+          {
+            "name": "Regalías",
+            "dataType": "string",
+            "sourceColumn": "Regalías"
+          },
+          {
+            "name": "País Origen",
+            "dataType": "string",
+            "sourceColumn": "País Origen"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimProducto",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT [skproducto], ",
+                "       [dsnivelppalproducto]                                         AS 'Nivel Principal Producto', ",
+                "       [dsmarca]                                                     AS 'Marca', ",
+                "       [dstipoinventario]                                            AS 'Unidad de Negocio', ",
+                "       [dsvertical]                                                  AS 'Vertical', ",
+                "       Concat ([codlineaproducto], ' - ', [dslineaproducto])         AS 'Línea de Negocio', ",
+                "       [dsgenero]                                                    AS 'Genéro', ",
+                "       [dsclase]                                                     AS 'Clase', ",
+                "       Concat([codsubclase], ' - ', [dssubclase])                    AS 'Subclase', ",
+                "       Concat ([codcoleccionproducto], ' - ', [dscoleccionproducto]) AS 'Colección', ",
+                "       [dsaudiencia]                                                 AS 'Audiencia', ",
+                "       [dsciclovidaproducto]                                         AS 'Ciclo de Vida', ",
+                "       [idproductobase]                                              AS 'Código Producto Base', ",
+                "       [idproductogenerico]                                          AS 'Código Producto Genérico', ",
+                "       [idproductolargo]                                             AS 'Código Producto Largo' ",
+                "       -----ATRIBUTO ",
+                "       , ",
+                "       [nmproducto]                                                  AS 'Producto' ",
+                "       --VENTAS    ",
+                "       , [dsgamacolorproducto]                                       AS 'Gama Color Producto', ",
+                "       Concat ([codcolor], ' - ', [dscolor])                         AS 'Color', ",
+                "       [codtalla]                                                    AS 'Talla', ",
+                "       Concat ([alto], ' - ', [ancho], ' - ', [profundidad])         AS 'Dimensiones', ",
+                "       CASE ",
+                "         WHEN [dstipoean13] IS NULL THEN Concat([dstipoean14], ' - ', [valorean] ",
+                "                                         ) ",
+                "         WHEN [dstipoean14] IS NULL THEN Concat([dstipoean13], ' - ', [valorean] ",
+                "                                         ) ",
+                "         ELSE [valorean] ",
+                "       END                                                           EAN, ",
+                "       Concat ([codsublineaproducto], ' - ', [dssublineaproducto])   AS 'Sublínea', ",
+                "       [dsdotacion]                                                  AS 'Dotación', ",
+                "       [dsorigen]                                                    AS 'Origen' ",
+                "       ,[dsregalias]                                                 AS 'Regalías', ",
+                "       [paisorigen]                                                  AS 'País Origen' ",
+                "FROM   [NALSANI_DWH].[dbo].[dimproducto]"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [skproducto], ",
+                  "       [dsnivelppalproducto]                                         AS 'Nivel Principal Producto', ",
+                  "       [dsmarca]                                                     AS 'Marca', ",
+                  "       [dstipoinventario]                                            AS 'Unidad de Negocio', ",
+                  "       [dsvertical]                                                  AS 'Vertical', ",
+                  "       Concat ([codlineaproducto], ' - ', [dslineaproducto])         AS 'Línea de Negocio', ",
+                  "       [dsgenero]                                                    AS 'Genéro', ",
+                  "       [dsclase]                                                     AS 'Clase', ",
+                  "       Concat([codsubclase], ' - ', [dssubclase])                    AS 'Subclase', ",
+                  "       Concat ([codcoleccionproducto], ' - ', [dscoleccionproducto]) AS 'Colección', ",
+                  "       [dsaudiencia]                                                 AS 'Audiencia', ",
+                  "       [dsciclovidaproducto]                                         AS 'Ciclo de Vida', ",
+                  "       [idproductobase]                                              AS 'Código Producto Base', ",
+                  "       [idproductogenerico]                                          AS 'Código Producto Genérico', ",
+                  "       [idproductolargo]                                             AS 'Código Producto Largo' ",
+                  "       -----ATRIBUTO ",
+                  "       , ",
+                  "       [nmproducto]                                                  AS 'Producto' ",
+                  "       --VENTAS    ",
+                  "       , [dsgamacolorproducto]                                       AS 'Gama Color Producto', ",
+                  "       Concat ([codcolor], ' - ', [dscolor])                         AS 'Color', ",
+                  "       [codtalla]                                                    AS 'Talla', ",
+                  "       Concat ([alto], ' - ', [ancho], ' - ', [profundidad])         AS 'Dimensiones', ",
+                  "       CASE ",
+                  "         WHEN [dstipoean13] IS NULL THEN Concat([dstipoean14], ' - ', [valorean] ",
+                  "                                         ) ",
+                  "         WHEN [dstipoean14] IS NULL THEN Concat([dstipoean13], ' - ', [valorean] ",
+                  "                                         ) ",
+                  "         ELSE [valorean] ",
+                  "       END                                                           EAN, ",
+                  "       Concat ([codsublineaproducto], ' - ', [dssublineaproducto])   AS 'Sublínea', ",
+                  "       [dsdotacion]                                                  AS 'Dotación', ",
+                  "       [dsorigen]                                                    AS 'Origen' ",
+                  "       ,[dsregalias]                                                 AS 'Regalías', ",
+                  "       [paisorigen]                                                  AS 'País Origen' ",
+                  "FROM   [NALSANI_DWH].[dbo].[dimproducto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": ".Producto",
+            "levels": [
+              {
+                "name": "Nivel Principal Producto",
+                "ordinal": 0,
+                "column": "Nivel Principal Producto"
+              },
+              {
+                "name": "Marca",
+                "ordinal": 1,
+                "column": "Marca"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT [skproducto], ",
+              "       [dsnivelppalproducto]                                         AS 'Nivel Principal Producto', ",
+              "       [dsmarca]                                                     AS 'Marca', ",
+              "       [dstipoinventario]                                            AS 'Unidad de Negocio', ",
+              "       [dsvertical]                                                  AS 'Vertical', ",
+              "       Concat ([codlineaproducto], ' - ', [dslineaproducto])         AS 'Línea de Negocio', ",
+              "       [dsgenero]                                                    AS 'Genéro', ",
+              "       [dsclase]                                                     AS 'Clase', ",
+              "       Concat([codsubclase], ' - ', [dssubclase])                    AS 'Subclase', ",
+              "       Concat ([codcoleccionproducto], ' - ', [dscoleccionproducto]) AS 'Colección', ",
+              "       [dsaudiencia]                                                 AS 'Audiencia', ",
+              "       [dsciclovidaproducto]                                         AS 'Ciclo de Vida', ",
+              "       [idproductobase]                                              AS 'Código Producto Base', ",
+              "       [idproductogenerico]                                          AS 'Código Producto Genérico', ",
+              "       [idproductolargo]                                             AS 'Código Producto Largo' ",
+              "       -----ATRIBUTO ",
+              "       , ",
+              "       [nmproducto]                                                  AS 'Producto' ",
+              "       --VENTAS    ",
+              "       , [dsgamacolorproducto]                                       AS 'Gama Color Producto', ",
+              "       Concat ([codcolor], ' - ', [dscolor])                         AS 'Color', ",
+              "       [codtalla]                                                    AS 'Talla', ",
+              "       Concat ([alto], ' - ', [ancho], ' - ', [profundidad])         AS 'Dimensiones', ",
+              "       CASE ",
+              "         WHEN [dstipoean13] IS NULL THEN Concat([dstipoean14], ' - ', [valorean] ",
+              "                                         ) ",
+              "         WHEN [dstipoean14] IS NULL THEN Concat([dstipoean13], ' - ', [valorean] ",
+              "                                         ) ",
+              "         ELSE [valorean] ",
+              "       END                                                           EAN, ",
+              "       Concat ([codsublineaproducto], ' - ', [dssublineaproducto])   AS 'Sublínea', ",
+              "       [dsdotacion]                                                  AS 'Dotación', ",
+              "       [dsorigen]                                                    AS 'Origen' ",
+              "       ,[dsregalias]                                                 AS 'Regalías', ",
+              "       [paisorigen]                                                  AS 'País Origen' ",
+              "FROM   [NALSANI_DWH].[dbo].[dimproducto]"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimProducto"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [skproducto], ",
+              "       [dsnivelppalproducto]                                         AS 'Nivel Principal Producto', ",
+              "       [dsmarca]                                                     AS 'Marca', ",
+              "       [dstipoinventario]                                            AS 'Unidad de Negocio', ",
+              "       [dsvertical]                                                  AS 'Vertical', ",
+              "       Concat ([codlineaproducto], ' - ', [dslineaproducto])         AS 'Línea de Negocio', ",
+              "       [dsgenero]                                                    AS 'Genéro', ",
+              "       [dsclase]                                                     AS 'Clase', ",
+              "       Concat([codsubclase], ' - ', [dssubclase])                    AS 'Subclase', ",
+              "       Concat ([codcoleccionproducto], ' - ', [dscoleccionproducto]) AS 'Colección', ",
+              "       [dsaudiencia]                                                 AS 'Audiencia', ",
+              "       [dsciclovidaproducto]                                         AS 'Ciclo de Vida', ",
+              "       [idproductobase]                                              AS 'Código Producto Base', ",
+              "       [idproductogenerico]                                          AS 'Código Producto Genérico', ",
+              "       [idproductolargo]                                             AS 'Código Producto Largo' ",
+              "       -----ATRIBUTO ",
+              "       , ",
+              "       [nmproducto]                                                  AS 'Producto' ",
+              "       --VENTAS    ",
+              "       , [dsgamacolorproducto]                                       AS 'Gama Color Producto', ",
+              "       Concat ([codcolor], ' - ', [dscolor])                         AS 'Color', ",
+              "       [codtalla]                                                    AS 'Talla', ",
+              "       Concat ([alto], ' - ', [ancho], ' - ', [profundidad])         AS 'Dimensiones', ",
+              "       CASE ",
+              "         WHEN [dstipoean13] IS NULL THEN Concat([dstipoean14], ' - ', [valorean] ",
+              "                                         ) ",
+              "         WHEN [dstipoean14] IS NULL THEN Concat([dstipoean13], ' - ', [valorean] ",
+              "                                         ) ",
+              "         ELSE [valorean] ",
+              "       END                                                           EAN, ",
+              "       Concat ([codsublineaproducto], ' - ', [dssublineaproducto])   AS 'Sublínea', ",
+              "       [dsdotacion]                                                  AS 'Dotación', ",
+              "       [dsorigen]                                                    AS 'Origen' ",
+              "       ,[dsregalias]                                                 AS 'Regalías', ",
+              "       [paisorigen]                                                  AS 'País Origen' ",
+              "FROM   [NALSANI_DWH].[dbo].[dimproducto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Proveedor",
+        "columns": [
+          {
+            "name": "SkProveedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProveedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código del Proveedor",
+            "dataType": "string",
+            "sourceColumn": "IdProveedor",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Proveedor",
+            "dataType": "string",
+            "sourceColumn": "DsProveedor",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimProveedor",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimProveedor].* FROM [dbo].[DimProveedor] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimProveedor].* FROM [dbo].[DimProveedor] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimProveedor"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Prueba",
+        "columns": [
+          {
+            "name": "SkPrueba",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkPrueba",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Prueba",
+            "dataType": "string",
+            "sourceColumn": "IdPrueba",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Prueba",
+            "dataType": "string",
+            "sourceColumn": "DsPrueba",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Tipo",
+            "dataType": "string",
+            "sourceColumn": "Tipo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Instrumento de Prueba",
+            "dataType": "string",
+            "sourceColumn": "InstrumentoPrueba",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Unidad",
+            "dataType": "string",
+            "sourceColumn": "Unidad",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimPrueba",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimPrueba].* FROM [dbo].[DimPrueba] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimPrueba].* FROM [dbo].[DimPrueba] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimPrueba"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Variable de Prueba",
+        "columns": [
+          {
+            "name": "SkVariablePrueba",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkVariablePrueba",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Variable de Prueba",
+            "dataType": "string",
+            "sourceColumn": "IdVariablePrueba",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Variable de Prueba",
+            "dataType": "string",
+            "sourceColumn": "DsVariablePrueba",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimVariablePrueba",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimVariablePrueba].* FROM [dbo].[DimVariablePrueba] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimVariablePrueba].* FROM [dbo].[DimVariablePrueba] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimVariablePrueba"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "M  Inspección de Calidad",
+        "columns": [
+          {
+            "name": "SkInspeccioncalidad",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkInspeccioncalidad",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "SkEstructuraCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstructuraCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkEstadoInventarioInspeccion",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstadoInventarioInspeccion",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkGrupoPrueba",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkGrupoPrueba",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkPrueba",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkPrueba",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkProveedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProveedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkProducto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProducto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkVariablePrueba",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkVariablePrueba",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Ubicación",
+            "dataType": "string",
+            "sourceColumn": "CodUbicacion",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Estado",
+            "dataType": "string",
+            "sourceColumn": "Estado",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Tipo de Referencia del Proceso",
+            "dataType": "string",
+            "sourceColumn": "TipoReferenciaProceso",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Acción Fallo",
+            "dataType": "string",
+            "sourceColumn": "AccionFallo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Resultado",
+            "dataType": "string",
+            "sourceColumn": "Resultado",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Resultados Predeterminados",
+            "dataType": "string",
+            "sourceColumn": "ResultadosPredeterminados",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Cantidad",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Cant",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Cantidad Comprada",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CantComprada",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Cantidad Resultado",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CantResultado",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Secuencia Prueba",
+            "dataType": "double",
+            "sourceColumn": "SecuenciaPrueba",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Nivel de Aceptación",
+            "dataType": "double",
+            "sourceColumn": "NivelAceptacion",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FactInspeccionCalidad",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[FactInspeccionCalidad].* FROM [dbo].[FactInspeccionCalidad] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cantidad (IC)",
+            "expression": " SUM([Cantidad])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Cantidad Comprada (IC)",
+            "expression": " SUM ([Cantidad Comprada])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Cantidad Resultado (IC)",
+            "expression": " SUM([Cantidad Resultado])",
+            "displayFolder": "Metricas Generales"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FactInspeccionCalidad].* FROM [dbo].[FactInspeccionCalidad] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactInspeccionCalidad"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "M  No Conformidad",
+        "columns": [
+          {
+            "name": "SkFactNoConformidad",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFactNoConformidad",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "SkFechaNoConformidad",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFechaNoConformidad",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkProveedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProveedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkProducto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProducto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkUnidadMedida",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkUnidadMedida",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Unidades",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Unidades",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Tratamiento",
+            "dataType": "string",
+            "sourceColumn": "Tratamiento",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Notificado por",
+            "dataType": "string",
+            "sourceColumn": "Notificado por"
+          },
+          {
+            "name": "Trabajador Responsable",
+            "dataType": "string",
+            "sourceColumn": "Trabajador Responsable"
+          },
+          {
+            "name": "Tipo Conformidad",
+            "dataType": "string",
+            "sourceColumn": "Tipo Conformidad"
+          },
+          {
+            "name": "Tipo Problema",
+            "dataType": "string",
+            "sourceColumn": "Tipo Problema"
+          },
+          {
+            "name": "Aprobación",
+            "dataType": "string",
+            "sourceColumn": "Aprobación"
+          },
+          {
+            "name": "Estado Inventario",
+            "dataType": "string",
+            "sourceColumn": "Estado Inventario"
+          },
+          {
+            "name": "Fecha No Conformidad",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha No Conformidad"
+          },
+          {
+            "name": "SkEstructuraCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstructuraCanal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FactNoConformidad",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT [dbo].[factnoconformidad].[skfactnoconformidad], ",
+                "       [dbo].[factnoconformidad].[skfechanoconformidad], ",
+                "       [dbo].[factnoconformidad].[skproveedor], ",
+                "       [dbo].[factnoconformidad].[skproducto], ",
+                "       [dbo].[factnoconformidad].[SkEstructuraCanal], ",
+                "       [dbo].[factnoconformidad].[skunidadmedida], ",
+                "       [dbo].[factnoconformidad].[unidades], ",
+                "\t   CONCAT ([idnotificadopor],' - ',[nmnotificadopor]) AS 'Notificado por',",
+                "       CONCAT([idtrabajadorresponsable],' - ',[nmtrabajadorresponsable]) AS 'Trabajador Responsable',",
+                "       CONCAT ([idtipoconformidad],' - ',[dstipoconformidad]) AS 'Tipo Conformidad',",
+                "\t   CONCAT([idtipoproblema],' - ',[dstipoproblema]) AS 'Tipo Problema',",
+                "       [dbo].[factnoconformidad].[tratamiento] AS 'Tratamiento',",
+                "       [dbo].[factnoconformidad].[aprobacion] AS 'Aprobación',",
+                "       [dbo].[factnoconformidad].[estadoinventario] AS 'Estado Inventario', ",
+                "       [dbo].[factnoconformidad].[dtnoconformidad] AS 'Fecha No Conformidad'",
+                "FROM   [dbo].[factnoconformidad]"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[factnoconformidad].[skfactnoconformidad], ",
+                  "       [dbo].[factnoconformidad].[skfechanoconformidad], ",
+                  "       [dbo].[factnoconformidad].[skproveedor], ",
+                  "       [dbo].[factnoconformidad].[skproducto], ",
+                  "       [dbo].[factnoconformidad].[SkEstructuraCanal], ",
+                  "       [dbo].[factnoconformidad].[skunidadmedida], ",
+                  "       [dbo].[factnoconformidad].[unidades], ",
+                  "\t   CONCAT ([idnotificadopor],' - ',[nmnotificadopor]) AS 'Notificado por',",
+                  "       CONCAT([idtrabajadorresponsable],' - ',[nmtrabajadorresponsable]) AS 'Trabajador Responsable',",
+                  "       CONCAT ([idtipoconformidad],' - ',[dstipoconformidad]) AS 'Tipo Conformidad',",
+                  "\t   CONCAT([idtipoproblema],' - ',[dstipoproblema]) AS 'Tipo Problema',",
+                  "       [dbo].[factnoconformidad].[tratamiento] AS 'Tratamiento',",
+                  "       [dbo].[factnoconformidad].[aprobacion] AS 'Aprobación',",
+                  "       [dbo].[factnoconformidad].[estadoinventario] AS 'Estado Inventario', ",
+                  "       [dbo].[factnoconformidad].[dtnoconformidad] AS 'Fecha No Conformidad'",
+                  "FROM   [dbo].[factnoconformidad]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cantidad No Conforme (NC)",
+            "expression": "SUM([Unidades])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "% Producto No Conforme (NC)",
+            "expression": " IFERROR('M  No Conformidad'[Cantidad No Conforme (NC)]/'M  Inspección de Calidad'[Cantidad Comprada (IC)],BLANK())",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "% Producto Aceptado (NC)",
+            "expression": " 1-'M  No Conformidad'[% Producto No Conforme (NC)]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Puntos (NC)",
+            "expression": "IF('M  No Conformidad'[% Producto Aceptado (NC)]>=0.96,100, IF(OR('M  No Conformidad'[% Producto Aceptado (NC)]>=0.76,'M  No Conformidad'[% Producto Aceptado (NC)]<=0.95),80,75))",
+            "displayFolder": "Metricas Generales"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT [dbo].[factnoconformidad].[skfactnoconformidad], ",
+              "       [dbo].[factnoconformidad].[skfechanoconformidad], ",
+              "       [dbo].[factnoconformidad].[skproveedor], ",
+              "       [dbo].[factnoconformidad].[skproducto], ",
+              "       [dbo].[factnoconformidad].[SkEstructuraCanal], ",
+              "       [dbo].[factnoconformidad].[skunidadmedida], ",
+              "       [dbo].[factnoconformidad].[unidades], ",
+              "\t   CONCAT ([idnotificadopor],' - ',[nmnotificadopor]) AS 'Notificado por',",
+              "       CONCAT([idtrabajadorresponsable],' - ',[nmtrabajadorresponsable]) AS 'Trabajador Responsable',",
+              "       CONCAT ([idtipoconformidad],' - ',[dstipoconformidad]) AS 'Tipo Conformidad',",
+              "\t   CONCAT([idtipoproblema],' - ',[dstipoproblema]) AS 'Tipo Problema',",
+              "       [dbo].[factnoconformidad].[tratamiento] AS 'Tratamiento',",
+              "       [dbo].[factnoconformidad].[aprobacion] AS 'Aprobación',",
+              "       [dbo].[factnoconformidad].[estadoinventario] AS 'Estado Inventario', ",
+              "       [dbo].[factnoconformidad].[dtnoconformidad] AS 'Fecha No Conformidad'",
+              "FROM   [dbo].[factnoconformidad]"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactNoConformidad"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[factnoconformidad].[skfactnoconformidad], ",
+              "       [dbo].[factnoconformidad].[skfechanoconformidad], ",
+              "       [dbo].[factnoconformidad].[skproveedor], ",
+              "       [dbo].[factnoconformidad].[skproducto], ",
+              "       [dbo].[factnoconformidad].[SkEstructuraCanal], ",
+              "       [dbo].[factnoconformidad].[skunidadmedida], ",
+              "       [dbo].[factnoconformidad].[unidades], ",
+              "\t   CONCAT ([idnotificadopor],' - ',[nmnotificadopor]) AS 'Notificado por',",
+              "       CONCAT([idtrabajadorresponsable],' - ',[nmtrabajadorresponsable]) AS 'Trabajador Responsable',",
+              "       CONCAT ([idtipoconformidad],' - ',[dstipoconformidad]) AS 'Tipo Conformidad',",
+              "\t   CONCAT([idtipoproblema],' - ',[dstipoproblema]) AS 'Tipo Problema',",
+              "       [dbo].[factnoconformidad].[tratamiento] AS 'Tratamiento',",
+              "       [dbo].[factnoconformidad].[aprobacion] AS 'Aprobación',",
+              "       [dbo].[factnoconformidad].[estadoinventario] AS 'Estado Inventario', ",
+              "       [dbo].[factnoconformidad].[dtnoconformidad] AS 'Fecha No Conformidad'",
+              "FROM   [dbo].[factnoconformidad]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Unidad de Medida",
+        "columns": [
+          {
+            "name": "SkUnidadMedida",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkUnidadMedida",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Unidad de Medida",
+            "dataType": "string",
+            "sourceColumn": "IdUnidadMedida",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Unidad de Medida",
+            "dataType": "string",
+            "sourceColumn": "DsUnidadMedida",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimUnidadMedida",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimUnidadMedida].* FROM [dbo].[DimUnidadMedida] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimUnidadMedida].* FROM [dbo].[DimUnidadMedida] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimUnidadMedida"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Tiempo",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "SkFecha",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFecha",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Fecha",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Código del Día",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Día",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día de la Semana",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día de la Semana",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semana del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semana del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Trimestre del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Trimestre del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Trimestre del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Trimestre del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Semestre del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Semestre del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semestre del Año Fiscal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semestre del Año Fiscal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Año Fiscal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Año Fiscal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código del Mes del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes del Año Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes del Año Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semana del Año Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semana del Año Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Trimestre Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Trimestre Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Trimestre Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Trimestre Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Semestre Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Semestre Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semestre Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semestre Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Festivos",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Festivos",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Totto Loco",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Totto Loco",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Temporada",
+            "dataType": "string",
+            "sourceColumn": "Temporada",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": ".Mes Comercial",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "FORMAT('D  Tiempo'[Código del Mes del Año Comercial],\"00\")&\" \"&'D  Tiempo'[Mes del Año Comercial]"
+          },
+          {
+            "type": "calculated",
+            "name": ".Mes Fiscal",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "FORMAT('D  Tiempo'[Código del Mes del Año Fiscal],\"00\")&\" \"&'D  Tiempo'[Mes del Año Fiscal]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "VwTiempo",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Comercial",
+            "levels": [
+              {
+                "name": "Año Comercial",
+                "ordinal": 0,
+                "column": "Código del Año Comercial"
+              },
+              {
+                "name": "Semestre Comercial",
+                "ordinal": 1,
+                "column": "Semestre Comercial"
+              },
+              {
+                "name": "Trimestre Comercial",
+                "ordinal": 2,
+                "column": "Trimestre Comercial"
+              },
+              {
+                "name": "Semana Comercial",
+                "ordinal": 4,
+                "column": "Semana del Año Comercial"
+              },
+              {
+                "name": "Día",
+                "ordinal": 5,
+                "column": "Día"
+              },
+              {
+                "name": "Día de la Semana",
+                "ordinal": 6,
+                "column": "Día de la Semana"
+              },
+              {
+                "name": ".Mes Comercial",
+                "ordinal": 3,
+                "column": ".Mes Comercial"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal",
+            "levels": [
+              {
+                "name": "Año Fiscal",
+                "ordinal": 0,
+                "column": "Código del Año Fiscal"
+              },
+              {
+                "name": "Semestre Fiscal",
+                "ordinal": 1,
+                "column": "Semestre del Año Fiscal"
+              },
+              {
+                "name": "Trimestre Fiscal",
+                "ordinal": 2,
+                "column": "Trimestre del Año Fiscal"
+              },
+              {
+                "name": "Semana Fiscal",
+                "ordinal": 4,
+                "column": "Semana del Año Fiscal"
+              },
+              {
+                "name": "Día",
+                "ordinal": 6,
+                "column": "Día"
+              },
+              {
+                "name": "Día de la Semana",
+                "ordinal": 5,
+                "column": "Día de la Semana"
+              },
+              {
+                "name": ".Mes Fiscal",
+                "ordinal": 3,
+                "column": ".Mes Fiscal"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VwTiempo"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "35ee0120-ef7d-4db9-aed8-2a58278a48e5",
+        "fromTable": "M  Inspección de Calidad",
+        "fromColumn": "SkEstadoInventarioInspeccion",
+        "toTable": "D  Estado Inspección Inventario",
+        "toColumn": "SkEstadoInventarioInspeccion"
+      },
+      {
+        "name": "2addedbd-2984-4481-9e68-a1112cfa6228",
+        "fromTable": "M  Inspección de Calidad",
+        "fromColumn": "SkGrupoPrueba",
+        "toTable": "D  Grupo de Prueba",
+        "toColumn": "SkGrupoPrueba"
+      },
+      {
+        "name": "56618245-12ee-4621-8cec-e309a57fc35f",
+        "fromTable": "M  Inspección de Calidad",
+        "fromColumn": "SkProveedor",
+        "toTable": "D  Proveedor",
+        "toColumn": "SkProveedor"
+      },
+      {
+        "name": "8a9514db-6e7d-41b0-8e9d-490a1f4be9dc",
+        "fromTable": "M  Inspección de Calidad",
+        "fromColumn": "SkPrueba",
+        "toTable": "D  Prueba",
+        "toColumn": "SkPrueba"
+      },
+      {
+        "name": "ec8c97e1-6c31-44ef-a69d-7b2127d9a4b7",
+        "fromTable": "M  Inspección de Calidad",
+        "fromColumn": "SkVariablePrueba",
+        "toTable": "D  Variable de Prueba",
+        "toColumn": "SkVariablePrueba"
+      },
+      {
+        "name": "ebf46982-f723-4321-bf82-6e5dc7068e83",
+        "fromTable": "M  No Conformidad",
+        "fromColumn": "SkProveedor",
+        "toTable": "D  Proveedor",
+        "toColumn": "SkProveedor"
+      },
+      {
+        "name": "4ef7f154-c7d0-4797-8529-db1b55ed7565",
+        "fromTable": "M  No Conformidad",
+        "fromColumn": "SkProducto",
+        "toTable": "D  Producto",
+        "toColumn": "SkProducto"
+      },
+      {
+        "name": "8fce5984-f3d7-4e6c-bd85-c4638e3c531f",
+        "fromTable": "M  Inspección de Calidad",
+        "fromColumn": "SkProducto",
+        "toTable": "D  Producto",
+        "toColumn": "SkProducto"
+      },
+      {
+        "name": "c1fe3f18-8872-43bb-9356-c5aaf85605a6",
+        "fromTable": "M  No Conformidad",
+        "fromColumn": "SkUnidadMedida",
+        "toTable": "D  Unidad de Medida",
+        "toColumn": "SkUnidadMedida"
+      },
+      {
+        "name": "1286810e-0348-4350-9181-408954c63ae2",
+        "fromTable": "M  No Conformidad",
+        "fromColumn": "SkFechaNoConformidad",
+        "toTable": "D  Tiempo",
+        "toColumn": "SkFecha"
+      },
+      {
+        "name": "00de1c61-31f2-4396-b079-1c2e0aca18b3",
+        "fromTable": "M  No Conformidad",
+        "fromColumn": "SkEstructuraCanal",
+        "toTable": "D  Estructura Canal",
+        "toColumn": "SkEstructuraCanal"
+      },
+      {
+        "name": "e53aaa1f-e358-4a0b-afac-265eba79a72f",
+        "fromTable": "M  Inspección de Calidad",
+        "fromColumn": "SkEstructuraCanal",
+        "toTable": "D  Estructura Canal",
+        "toColumn": "SkEstructuraCanal"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

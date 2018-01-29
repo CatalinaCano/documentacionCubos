@@ -1,0 +1,1877 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "NALSANI_DWH",
+        "connectionString": "Provider=SQLNCLI11.1;Persist Security Info=False;User ID=consulta_ssrs;Initial Catalog=NALSANI_DWH;Data Source=10.50.80.167;Initial File Name=;Server SPN=",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "D  Motivo de Descuento",
+        "columns": [
+          {
+            "name": "SkMotivoDescuento",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMotivoDescuento",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Motivo Descuento",
+            "dataType": "string",
+            "sourceColumn": "IdMotivoDescuento",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código Origen",
+            "dataType": "string",
+            "sourceColumn": "IdOrigen",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Motivo Descuento",
+            "dataType": "string",
+            "sourceColumn": "DsMotivoDescuento",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Motivo de Descuento",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimMotivoDescuento].[SkMotivoDescuento],[dbo].[DimMotivoDescuento].[IdMotivoDescuento],[dbo].[DimMotivoDescuento].[IdOrigen],[dbo].[DimMotivoDescuento].[DsMotivoDescuento] FROM [dbo].[DimMotivoDescuento] ",
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkMotivoDescuento</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>124</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdMotivoDescuento</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>123</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdOrigen</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>72</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsMotivoDescuento</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>125</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>83</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>103</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkMotivoDescuento</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdMotivoDescuento</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdOrigen</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsMotivoDescuento</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimMotivoDescuento].[SkMotivoDescuento],[dbo].[DimMotivoDescuento].[IdMotivoDescuento],[dbo].[DimMotivoDescuento].[IdOrigen],[dbo].[DimMotivoDescuento].[DsMotivoDescuento] FROM [dbo].[DimMotivoDescuento] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimMotivoDescuento"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkMotivoDescuento</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>124</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdMotivoDescuento</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>123</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdOrigen</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>72</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsMotivoDescuento</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>125</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>83</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>103</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkMotivoDescuento</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdMotivoDescuento</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdOrigen</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsMotivoDescuento</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Cambio de Canal",
+        "columns": [
+          {
+            "name": "SkCambioCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCambioCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Cambio Canal",
+            "dataType": "string",
+            "sourceColumn": "DsCambioCanal",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Cambio de Canal",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimCambioCanal].[SkCambioCanal],[dbo].[DimCambioCanal].[DsCambioCanal] FROM [dbo].[DimCambioCanal] ",
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkCambioCanal</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>103</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsCambioCanal</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>104</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>83</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>103</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SkCambioCanal</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DsCambioCanal</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtActualizacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DtCreacion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimCambioCanal].[SkCambioCanal],[dbo].[DimCambioCanal].[DsCambioCanal] FROM [dbo].[DimCambioCanal] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCambioCanal"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkCambioCanal</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>103</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsCambioCanal</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>104</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>83</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>103</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SkCambioCanal</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DsCambioCanal</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtActualizacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DtCreacion</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D Producto",
+        "columns": [
+          {
+            "name": "SkProducto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProducto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Unidad de Negocio",
+            "dataType": "string",
+            "sourceColumn": "Unidad de Negocio"
+          },
+          {
+            "name": "Línea de Negocio",
+            "dataType": "string",
+            "sourceColumn": "Línea de Negocio"
+          },
+          {
+            "name": "Nivel Principal Producto",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Nivel Principal Producto"
+          },
+          {
+            "name": "Marca",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Marca"
+          },
+          {
+            "name": "Vertical",
+            "dataType": "string",
+            "sourceColumn": "Vertical"
+          },
+          {
+            "name": "Genéro",
+            "dataType": "string",
+            "sourceColumn": "Genéro"
+          },
+          {
+            "name": "Clase",
+            "dataType": "string",
+            "sourceColumn": "Clase"
+          },
+          {
+            "name": "Subclase",
+            "dataType": "string",
+            "sourceColumn": "Subclase"
+          },
+          {
+            "name": "Colección",
+            "dataType": "string",
+            "sourceColumn": "Colección"
+          },
+          {
+            "name": "Audiencia",
+            "dataType": "string",
+            "sourceColumn": "Audiencia"
+          },
+          {
+            "name": "Ciclo de Vida",
+            "dataType": "string",
+            "sourceColumn": "Ciclo de Vida"
+          },
+          {
+            "name": "Código Producto Base",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Base"
+          },
+          {
+            "name": "Código Producto Genérico",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Genérico"
+          },
+          {
+            "name": "Código Producto Largo",
+            "dataType": "string",
+            "sourceColumn": "Código Producto Largo"
+          },
+          {
+            "name": "Nombre del Producto",
+            "dataType": "string",
+            "sourceColumn": "Producto"
+          },
+          {
+            "name": "Gama Color Producto",
+            "dataType": "string",
+            "sourceColumn": "Gama Color Producto"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color"
+          },
+          {
+            "name": "Talla",
+            "dataType": "string",
+            "sourceColumn": "Talla"
+          },
+          {
+            "name": "Dimensiones",
+            "dataType": "string",
+            "sourceColumn": "Dimensiones"
+          },
+          {
+            "name": "EAN",
+            "dataType": "string",
+            "sourceColumn": "EAN"
+          },
+          {
+            "name": "Sublínea",
+            "dataType": "string",
+            "sourceColumn": "Sublínea"
+          },
+          {
+            "name": "Dotación",
+            "dataType": "string",
+            "sourceColumn": "Dotación"
+          },
+          {
+            "name": "Origen",
+            "dataType": "string",
+            "sourceColumn": "Origen"
+          },
+          {
+            "name": "Regalías",
+            "dataType": "string",
+            "sourceColumn": "Regalías"
+          },
+          {
+            "name": "País Origen",
+            "dataType": "string",
+            "sourceColumn": "País Origen"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Producto",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT  [SkProducto]\t ",
+                "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+                "\t ,[DsMarca] AS 'Marca'",
+                "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+                "\t ,[DsVertical] AS 'Vertical'",
+                "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+                "\t ,[DsGenero] AS 'Genéro'",
+                "\t ,[DsClase] AS 'Clase'",
+                "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+                "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+                "\t ,[DsAudiencia] AS 'Audiencia'",
+                "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+                "\t ,[IdProductoBase] AS 'Código Producto Base'",
+                "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+                "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+                "\t -----ATRIBUTO",
+                "\t ,[NmProducto] AS 'Producto'   ",
+                " ",
+                "\t --VENTAS   ",
+                "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+                "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+                "\t ,[CodTalla] AS 'Talla'",
+                "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+                "\t ,CASE ",
+                "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+                "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+                "\t\t\t\tELSE",
+                "\t\t\t\t\t[ValorEan]",
+                "\t\tEND EAN",
+                "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+                "\t ,[DsDotacion] AS 'Dotación'",
+                "\t ,[DsOrigen] AS 'Origen'",
+                "",
+                "\t ,[DsRegalias] AS 'Regalías'",
+                "\t ,[PaisOrigen] AS 'País Origen'",
+                "  FROM [NALSANI_DWH].[dbo].[DimProducto]"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkProducto]\t ",
+                  "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+                  "\t ,[DsMarca] AS 'Marca'",
+                  "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+                  "\t ,[DsVertical] AS 'Vertical'",
+                  "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+                  "\t ,[DsGenero] AS 'Genéro'",
+                  "\t ,[DsClase] AS 'Clase'",
+                  "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+                  "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+                  "\t ,[DsAudiencia] AS 'Audiencia'",
+                  "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+                  "\t ,[IdProductoBase] AS 'Código Producto Base'",
+                  "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+                  "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+                  "\t -----ATRIBUTO",
+                  "\t ,[NmProducto] AS 'Producto'   ",
+                  " ",
+                  "\t --VENTAS   ",
+                  "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+                  "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+                  "\t ,[CodTalla] AS 'Talla'",
+                  "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+                  "\t ,CASE ",
+                  "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+                  "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+                  "\t\t\t\tELSE",
+                  "\t\t\t\t\t[ValorEan]",
+                  "\t\tEND EAN",
+                  "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+                  "\t ,[DsDotacion] AS 'Dotación'",
+                  "\t ,[DsOrigen] AS 'Origen'",
+                  "",
+                  "\t ,[DsRegalias] AS 'Regalías'",
+                  "\t ,[PaisOrigen] AS 'País Origen'",
+                  "  FROM [NALSANI_DWH].[dbo].[DimProducto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": ".Producto",
+            "levels": [
+              {
+                "name": "Nivel Principal Producto",
+                "ordinal": 0,
+                "column": "Nivel Principal Producto"
+              },
+              {
+                "name": "Marca",
+                "ordinal": 1,
+                "column": "Marca"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT  [SkProducto]\t ",
+              "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+              "\t ,[DsMarca] AS 'Marca'",
+              "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+              "\t ,[DsVertical] AS 'Vertical'",
+              "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+              "\t ,[DsGenero] AS 'Genéro'",
+              "\t ,[DsClase] AS 'Clase'",
+              "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+              "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+              "\t ,[DsAudiencia] AS 'Audiencia'",
+              "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+              "\t ,[IdProductoBase] AS 'Código Producto Base'",
+              "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+              "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+              "\t -----ATRIBUTO",
+              "\t ,[NmProducto] AS 'Producto'   ",
+              " ",
+              "\t --VENTAS   ",
+              "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+              "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+              "\t ,[CodTalla] AS 'Talla'",
+              "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+              "\t ,CASE ",
+              "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+              "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+              "\t\t\t\tELSE",
+              "\t\t\t\t\t[ValorEan]",
+              "\t\tEND EAN",
+              "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+              "\t ,[DsDotacion] AS 'Dotación'",
+              "\t ,[DsOrigen] AS 'Origen'",
+              "",
+              "\t ,[DsRegalias] AS 'Regalías'",
+              "\t ,[PaisOrigen] AS 'País Origen'",
+              "  FROM [NALSANI_DWH].[dbo].[DimProducto]"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimProducto"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT  [SkProducto]\t ",
+              "\t ,[DsNivelPpalProducto] AS 'Nivel Principal Producto'",
+              "\t ,[DsMarca] AS 'Marca'",
+              "\t ,[DsTipoInventario] AS 'Unidad de Negocio'",
+              "\t ,[DsVertical] AS 'Vertical'",
+              "\t ,CONCAT ([CodLineaProducto],' - ',[DsLineaProducto]) AS 'Línea de Negocio'",
+              "\t ,[DsGenero] AS 'Genéro'",
+              "\t ,[DsClase] AS 'Clase'",
+              "\t ,CONCAT([CodSubClase],' - ',[DsSubClase]) AS 'Subclase'",
+              "\t ,CONCAT ([CodColeccionProducto],' - ',[DsColeccionProducto]) AS 'Colección' ",
+              "\t ,[DsAudiencia] AS 'Audiencia'",
+              "\t ,[DsCicloVidaProducto] AS 'Ciclo de Vida'\t",
+              "\t ,[IdProductoBase] AS 'Código Producto Base'",
+              "\t ,[IdProductoGenerico] AS 'Código Producto Genérico'",
+              "\t ,[IdProductoLargo] AS 'Código Producto Largo'",
+              "\t -----ATRIBUTO",
+              "\t ,[NmProducto] AS 'Producto'   ",
+              " ",
+              "\t --VENTAS   ",
+              "\t ,[DsGamaColorProducto]  AS 'Gama Color Producto'  ",
+              "\t  ,CONCAT ([CodColor],' - ',[DsColor]) AS 'Color'",
+              "\t ,[CodTalla] AS 'Talla'",
+              "\t ,CONCAT ([Alto],' - ',[Ancho],' - ',[Profundidad]) AS 'Dimensiones'",
+              "\t ,CASE ",
+              "\t\t\t\tWHEN [DsTipoEAN13] IS NULL THEN CONCAT([DsTipoEAN14],' - ',[ValorEan])",
+              "\t\t\t\tWHEN [DsTipoEAN14] IS NULL THEN CONCAT([DsTipoEAN13],' - ',[ValorEan])",
+              "\t\t\t\tELSE",
+              "\t\t\t\t\t[ValorEan]",
+              "\t\tEND EAN",
+              "\t ,CONCAT ([CodSubLineaProducto],' - ',[DsSubLineaProducto]) AS 'Sublínea'",
+              "\t ,[DsDotacion] AS 'Dotación'",
+              "\t ,[DsOrigen] AS 'Origen'",
+              "",
+              "\t ,[DsRegalias] AS 'Regalías'",
+              "\t ,[PaisOrigen] AS 'País Origen'",
+              "  FROM [NALSANI_DWH].[dbo].[DimProducto]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Estructura Canal",
+        "columns": [
+          {
+            "name": "skestructuracanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "skestructuracanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Canal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Estructura Canal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Estructura Canal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "M2 Exhibición",
+            "dataType": "double",
+            "sourceColumn": "M2 Exhibición",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Responsable",
+            "dataType": "string",
+            "sourceColumn": "Responsable",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Zona",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ZONA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Seg1. SubCanal",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg1. SubCanal"
+          },
+          {
+            "name": "Seg2. Regional",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg2. Regional"
+          },
+          {
+            "name": "Seg3. Zonas",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg3. Zonas"
+          },
+          {
+            "name": "Seg4. Tipología",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg1. Tipología"
+          },
+          {
+            "name": "Seg5. Marca",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg5. Marca"
+          },
+          {
+            "name": "Seg6. Ubicación Ciudad",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Seg6. Ubicación Ciudad"
+          },
+          {
+            "name": "Regional",
+            "dataType": "string",
+            "sourceColumn": "Regional"
+          },
+          {
+            "name": "Dirección Comercial",
+            "dataType": "string",
+            "sourceColumn": "Dirección Comercial"
+          },
+          {
+            "name": "M2 Totto",
+            "dataType": "double",
+            "sourceColumn": "M2 Totto"
+          },
+          {
+            "name": "M2 Totto Tú",
+            "dataType": "double",
+            "sourceColumn": "M2 Totto Tú"
+          },
+          {
+            "name": "Total M2",
+            "dataType": "double",
+            "sourceColumn": "Totla M2"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Estructura Canal",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT [SkEstructuraCanal]",
+                "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+                "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+                "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+                "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+                "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+                "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+                "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+                "\t  ,[Zona] AS 'Zona'",
+                "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+                "\t  ",
+                "\t  --ATRIBUTOS",
+                "\t ,[RegionComercial] AS 'Regional'",
+                "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+                "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+                "     ,[M2Totto] AS 'M2 Totto'",
+                "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+                "\t ,[TotalM2Comercial] AS 'Totla M2'",
+                "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+                "\t     ",
+                "",
+                "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+                "       --,[NitFranquiciado]",
+                "\t    --,[DsFranquiciado]",
+                "      --,[NitFranquiciadoAnterior]",
+                "       --,[CuentaCliente]",
+                "",
+                "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E"
+              ],
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkEstructuraCanal]",
+                  "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+                  "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+                  "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+                  "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+                  "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+                  "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+                  "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+                  "\t  ,[Zona] AS 'Zona'",
+                  "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+                  "\t  ",
+                  "\t  --ATRIBUTOS",
+                  "\t ,[RegionComercial] AS 'Regional'",
+                  "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+                  "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+                  "     ,[M2Totto] AS 'M2 Totto'",
+                  "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+                  "\t ,[TotalM2Comercial] AS 'Totla M2'",
+                  "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+                  "\t     ",
+                  "",
+                  "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+                  "       --,[NitFranquiciado]",
+                  "\t    --,[DsFranquiciado]",
+                  "      --,[NitFranquiciadoAnterior]",
+                  "       --,[CuentaCliente]",
+                  "",
+                  "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Estructura de Canal",
+            "levels": [
+              {
+                "name": "Canal",
+                "ordinal": 0,
+                "column": "Canal"
+              },
+              {
+                "name": "Seg1. SubCanal",
+                "ordinal": 1,
+                "column": "Seg1. SubCanal"
+              },
+              {
+                "name": "Seg2. Regional",
+                "ordinal": 2,
+                "column": "Seg2. Regional"
+              },
+              {
+                "name": "Seg3. Zonas",
+                "ordinal": 3,
+                "column": "Seg3. Zonas"
+              },
+              {
+                "name": "Seg4. Tipología",
+                "ordinal": 4,
+                "column": "Seg4. Tipología"
+              },
+              {
+                "name": "Seg5. Marca",
+                "ordinal": 5,
+                "column": "Seg5. Marca"
+              },
+              {
+                "name": "Seg6. Ubicación Ciudad",
+                "ordinal": 6,
+                "column": "Seg6. Ubicación Ciudad"
+              },
+              {
+                "name": "Zona",
+                "ordinal": 7,
+                "column": "Zona"
+              },
+              {
+                "name": "Estructura Canal",
+                "ordinal": 8,
+                "column": "Estructura Canal"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT [SkEstructuraCanal]",
+              "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+              "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+              "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+              "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+              "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+              "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+              "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+              "\t  ,[Zona] AS 'Zona'",
+              "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+              "\t  ",
+              "\t  --ATRIBUTOS",
+              "\t ,[RegionComercial] AS 'Regional'",
+              "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+              "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+              "     ,[M2Totto] AS 'M2 Totto'",
+              "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+              "\t ,[TotalM2Comercial] AS 'Totla M2'",
+              "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+              "\t     ",
+              "",
+              "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+              "       --,[NitFranquiciado]",
+              "\t    --,[DsFranquiciado]",
+              "      --,[NitFranquiciadoAnterior]",
+              "       --,[CuentaCliente]",
+              "",
+              "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VwDimEstructuraCanal"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [SkEstructuraCanal]",
+              "\t  ,CONCAT([IdCanalEstructuraCanal],' - ',[DsCanalEstructuraCanal]) AS 'Canal'      ",
+              "\t  ,CONCAT([IdSeg1],' - ',[DsSeg1]) AS 'Seg1. SubCanal'",
+              "\t  ,CONCAT([IdSeg2],' - ',[DsSeg2]) AS 'Seg2. Regional'",
+              "\t  ,CONCAT([IdSeg3],' - ',[DsSeg3]) AS 'Seg3. Zonas'",
+              "\t  ,CONCAT([IdSeg4],' - ',[DsSeg4]) AS 'Seg1. Tipología'",
+              "\t  ,CONCAT([IdSeg5],' - ',[DsSeg5]) AS 'Seg5. Marca'",
+              "\t  ,CONCAT([IdSeg6],' - ',[DsSeg6]) AS 'Seg6. Ubicación Ciudad'",
+              "\t  ,[Zona] AS 'Zona'",
+              "\t  ,CONCAT([IdEstructuraCanalAx],' - ',[DsEstructuraCanal]) AS 'Estructura Canal'",
+              "\t  ",
+              "\t  --ATRIBUTOS",
+              "\t ,[RegionComercial] AS 'Regional'",
+              "\t  ,CONCAT([IdDirectorComercial],' - ',[DsDirectorComercial]) AS 'Dirección Comercial'",
+              "     ,[M2Exhibicion] AS 'M2 Exhibición'",
+              "     ,[M2Totto] AS 'M2 Totto'",
+              "     ,[M2TottoTu] AS 'M2 Totto Tú'",
+              "\t ,[TotalM2Comercial] AS 'Totla M2'",
+              "\t ,CONCAT([IdResponsable],' - ',  [DsResponsable]) AS 'Responsable'",
+              "\t     ",
+              "",
+              "      --,[IdFranquicia] PARA CUBO VENTAS COMO ATRIBUTO",
+              "       --,[NitFranquiciado]",
+              "\t    --,[DsFranquiciado]",
+              "      --,[NitFranquiciadoAnterior]",
+              "       --,[CuentaCliente]",
+              "",
+              "  FROM [NALSANI_DWH].[dbo].[DimEstructuraCanal]E</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "D  Tiempo",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "SkFecha",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFecha",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Fecha",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Código del Día",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Día",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Día de la Semana",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Día de la Semana",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes del Año Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes del Año Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código de la Semana del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código de la Semana del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semana del Año Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semana del Año Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Mes Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Mes Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Mes Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Trimestre Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Trimestre Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Trimestre Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Trimestre Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Semestre Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Semestre Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semestre Comercial",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Semestre Comercial",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Código del Año Comercial",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Código del Año Comercial",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Festivos",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Festivos",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Totto Loco",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Totto Loco",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Temporada",
+            "dataType": "string",
+            "sourceColumn": "Temporada",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": ".Mes Comercial",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "FORMAT('D  Tiempo'[Código del Mes del Año Comercial],\"00\")&\" \"&'D  Tiempo'[Mes del Año Comercial]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Tiempo",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Comercial",
+            "levels": [
+              {
+                "name": " Año Comercial",
+                "ordinal": 0,
+                "column": "Código del Año Comercial"
+              },
+              {
+                "name": "Semestre Comercial",
+                "ordinal": 1,
+                "column": "Semestre Comercial"
+              },
+              {
+                "name": "Trimestre Comercial",
+                "ordinal": 2,
+                "column": "Trimestre Comercial"
+              },
+              {
+                "name": "Semana Comercial",
+                "ordinal": 4,
+                "column": "Semana del Año Comercial"
+              },
+              {
+                "name": "Día",
+                "ordinal": 6,
+                "column": "Día"
+              },
+              {
+                "name": "Día de la Semana",
+                "ordinal": 5,
+                "column": "Día de la Semana"
+              },
+              {
+                "name": ".Mes Comercial",
+                "ordinal": 3,
+                "column": ".Mes Comercial"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[VwTiempo].* FROM [dbo].[VwTiempo] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VwTiempo"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "D  Vendedor",
+        "columns": [
+          {
+            "name": "SkVendedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkVendedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código del Vendedor",
+            "dataType": "string",
+            "sourceColumn": "Código del Vendedor",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Vendedor",
+            "dataType": "string",
+            "sourceColumn": "Vendedor",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Query",
+            "dataView": "full",
+            "source": {
+              "query": "SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[IdVendedor] AS 'Código del Vendedor',[dbo].[DimVendedor].[NmVendedor] AS 'Vendedor' FROM [dbo].[DimVendedor]",
+              "dataSource": "NALSANI_DWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[IdVendedor] AS 'Código del Vendedor',[dbo].[DimVendedor].[NmVendedor] AS 'Vendedor' FROM [dbo].[DimVendedor]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[IdVendedor] AS 'Código del Vendedor',[dbo].[DimVendedor].[NmVendedor] AS 'Vendedor' FROM [dbo].[DimVendedor]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Query"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[DimVendedor].[SkVendedor],[dbo].[DimVendedor].[IdVendedor] AS 'Código del Vendedor',[dbo].[DimVendedor].[NmVendedor] AS 'Vendedor' FROM [dbo].[DimVendedor]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "D  Hora",
+        "columns": [
+          {
+            "name": "SkHora",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkHora",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Hora",
+            "dataType": "int64",
+            "sourceColumn": "IdHora",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Franja Horaria",
+            "dataType": "string",
+            "sourceColumn": "IdFranjaHoraria",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Franja Horaria",
+            "dataType": "string",
+            "sourceColumn": "DsFranjaHoraria",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Hora",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimHora].* FROM [dbo].[DimHora] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimHora].* FROM [dbo].[DimHora] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimHora"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "M Ventas vs Presupuesto",
+        "columns": [
+          {
+            "name": "SkFecha",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkFecha",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkHora",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkHora",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkProducto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkProducto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkEstructuraCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkEstructuraCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkVendedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkVendedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkCambioCanal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkCambioCanal",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SkMotivoDescuento",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SkMotivoDescuento",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Código Nivel Principal Producto",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Código Nivel Principal Producto",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Venta Neta COP",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Venta Neta COP",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Venta Neta  USD",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Venta Neta  USD",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Presupuesto Pesos COP",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Presupuesto Pesos COP",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Presupuesto Pesos USD",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Presupuesto Pesos USD",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Numeric",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Presupuesto Unidades",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Presupuesto Unidades",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Unidades Vendidas",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Unidades Vendidas",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Número de Facturas Netas",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Número de Facturas Netas",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Número de Facturas Real",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Número de Facturas Real",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "VwVentasPOSPresupuesto",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[VwVentasPOSPresupuesto].* FROM [dbo].[VwVentasPOSPresupuesto] ",
+              "dataSource": "NALSANI_DWH"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Venta Neta COP (VPP)",
+            "expression": "SUM([Venta Neta COP])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Venta Neta",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Venta Neta USD (VPP)",
+            "expression": "SUM([Venta Neta  USD])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Venta Neta",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Presupuesto Pesos COP (VPP)",
+            "expression": "SUM([Presupuesto Pesos COP])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Presupuesto",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Presupuesto Pesos USD (VPP)",
+            "expression": "SUM([Presupuesto Pesos USD])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Presupuesto",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Presupuesto Unidades (VPP)",
+            "expression": "SUM([Presupuesto Unidades])",
+            "displayFolder": "Presupuesto"
+          },
+          {
+            "name": "Unidades Vendidas (VPP)",
+            "expression": "SUM([Unidades Vendidas])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Número de Facturas Netas (VPP)",
+            "expression": "SUM([Número de Facturas Netas])",
+            "displayFolder": "Metricas Generales"
+          },
+          {
+            "name": "Número de Facturas Real (VPP)",
+            "expression": "SUM([Número de Facturas Real])",
+            "displayFolder": "Metricas Generales"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[VwVentasPOSPresupuesto].* FROM [dbo].[VwVentasPOSPresupuesto] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VwVentasPOSPresupuesto"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "72757a1b-6d6b-42c0-a997-217fe94735e2",
+        "fromTable": "M Ventas vs Presupuesto",
+        "fromColumn": "SkFecha",
+        "toTable": "D  Tiempo",
+        "toColumn": "SkFecha"
+      },
+      {
+        "name": "27f116bc-ba2c-45e7-9001-de750643e9df",
+        "fromTable": "M Ventas vs Presupuesto",
+        "fromColumn": "SkHora",
+        "toTable": "D  Hora",
+        "toColumn": "SkHora"
+      },
+      {
+        "name": "b64206d6-e565-4fb1-b2d4-665884b86541",
+        "fromTable": "M Ventas vs Presupuesto",
+        "fromColumn": "SkEstructuraCanal",
+        "toTable": "D  Estructura Canal",
+        "toColumn": "skestructuracanal"
+      },
+      {
+        "name": "4ceadae8-3026-45f9-81e7-9e8b638ef825",
+        "fromTable": "M Ventas vs Presupuesto",
+        "fromColumn": "SkProducto",
+        "toTable": "D Producto",
+        "toColumn": "SkProducto"
+      },
+      {
+        "name": "0f39e1db-926b-4037-b1e3-cd4598d0b679",
+        "fromTable": "M Ventas vs Presupuesto",
+        "fromColumn": "SkCambioCanal",
+        "toTable": "D  Cambio de Canal",
+        "toColumn": "SkCambioCanal"
+      },
+      {
+        "name": "5e5e268a-1693-40bc-938f-534c494363db",
+        "fromTable": "M Ventas vs Presupuesto",
+        "fromColumn": "SkVendedor",
+        "toTable": "D  Vendedor",
+        "toColumn": "SkVendedor"
+      },
+      {
+        "name": "6d713bd5-8bd2-408f-a91a-82087a9d7ccd",
+        "fromTable": "M Ventas vs Presupuesto",
+        "fromColumn": "SkMotivoDescuento",
+        "toTable": "D  Motivo de Descuento",
+        "toColumn": "SkMotivoDescuento"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

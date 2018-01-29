@@ -66,55 +66,55 @@ for element in listadoLimpio: #Para cada archivo en la lista de archivos
         t=t+1
 
                     
-hoja2= libro.add_sheet('Metricas')
-hoja2.write(0,1,'Metricas')
-hoja2.col(0).width=1000
-hoja2.col(1).width=6000
-hoja2.col(2).width=50000
-nombreMetrica=[]
-q=1
-g=0
-u=1
+    hoja2= libro.add_sheet('Metricas')
+    hoja2.write(0,1,'Metricas')
+    hoja2.col(0).width=1000
+    hoja2.col(1).width=6000
+    hoja2.col(2).width=50000
+    nombreMetrica=[]
+    q=1
+    g=0
+    u=1
 
-for tab in data['model']['tables']:
-    if  tab ['name'][0].find("M")== -1:  #Son Dimensiones
-        print (tab['name'])           
-    else: #Son Metricaas
-        hoja2.write(q,g,q)
-        hoja2.write(q,g+1,tab['name'])
-        for m in tab['measures']:
-            expr= m['name'],":=",m['expression']
-            hoja2.write(u,y+2,expr)
-            u=u+1
-        q=u
-       
+    for tab in data['model']['tables']:
+        if  tab ['name'][0].find("M")== -1:  #Son Dimensiones
+            print (tab['name'])           
+        else: #Son Metricaas
+            hoja2.write(q,g,q)
+            hoja2.write(q,g+1,tab['name'])
+            for m in tab['measures']:
+                expr= m['name'],":=",m['expression']
+                hoja2.write(u,y+2,expr)
+                u=u+1
+            q=u
+           
 
-jerarquias=[]
-hoja3= libro.add_sheet('Jerarquias')
-hoja3.write(0,1,'Tabla de la Jerarquia')
-hoja3.write(0,2,'Nombre de la Jerarquia')
-hoja3.write(0,3,'Niveles de la Jerarquia')
-hoja3.col(0).width=1000
-hoja3.col(1).width=5000
-hoja3.col(2).width=5000
-hoja3.col(3).width=7000
-cv=1
-ly=3
-lx=2
-cg=1
+    jerarquias=[]
+    hoja3= libro.add_sheet('Jerarquias')
+    hoja3.write(0,1,'Tabla de la Jerarquia')
+    hoja3.write(0,2,'Nombre de la Jerarquia')
+    hoja3.write(0,3,'Niveles de la Jerarquia')
+    hoja3.col(0).width=1000
+    hoja3.col(1).width=5000
+    hoja3.col(2).width=5000
+    hoja3.col(3).width=7000
+    cv=1
+    ly=3
+    lx=2
+    cg=1
 
-for tx in data['model']['tables']:
-    if 'hierarchies' in tx :
-        for h in tx['hierarchies']:
-            hoja3.write(cv,y,cv)
-            hoja3.write(cv,y+1,tx['name'])
-            hoja3.write(cv,y+2,h['name'])
-            for l in h['levels']:                
-                hoja3.write(cg,y+3,l['name'])
-                cg=cg+1
-            cv=cg
-            
-libro.save(element+'.xls')
+    for tx in data['model']['tables']:
+        if 'hierarchies' in tx :
+            for h in tx['hierarchies']:
+                hoja3.write(cv,y,cv)
+                hoja3.write(cv,y+1,tx['name'])
+                hoja3.write(cv,y+2,h['name'])
+                for l in h['levels']:                
+                    hoja3.write(cg,y+3,l['name'])
+                    cg=cg+1
+                cv=cg
+                
+    libro.save(element+'.xls')
    
 
 
