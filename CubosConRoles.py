@@ -84,8 +84,8 @@ for element in listadoLimpio: #Para cada archivo en la lista de archivos
             hoja2.write(q,g+1,tab['name'])
             for m in tab['measures']:
                 expr= m['name'],":=",m['expression']
-                #hoja2.write(u,y+2,str(expr))
-                hoja2.write(u,y+2,expr)
+                hoja2.write(u,y+2,str(expr)) #con caracteres especiales
+                #hoja2.write(u,y+2,expr) #normal
                 u=u+1
             q=u
            
