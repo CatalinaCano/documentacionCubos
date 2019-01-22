@@ -1,0 +1,38 @@
+\t\"messageId\":\"MESSAGE-ID-123-xyz\",\n      \"to\":{\n        \"phoneNumber\": \"41793026727\",\n        \"emailAddress\": \"email@example.com\"\n      }\n    },\n    { \n    \t\"to\":{\n        \"phoneNumber\": \"41793026731\"\n      }\n    }\n  ],\n  \"sms\": {\n  \t\"text\": \"This is custom SMS text.\"\n  },\n  \"viber\": {\n  \t\"text\": \"Or to have fun with Viber text.\"\n  },\n  \"voice\": {\n  \t\"text\": \"Or make a call and read this text\"\n  },\n  \"email\":{\n    \"text\":\"Email message text.\",\n    \"subject\": \"Test subject\"\n   }\n}"
+"{ \n  \"scenarioKey\":\"FD90D1C5456A5E9D583333426591F5C9\",  \n  \"destinations\":[{ \n  \"to\":{\n  \"phoneNumber\": \"573196966720\"\n }\n }], \n  \"whatsApp\":{\n \"templateName\": \"welcome_multiple_languages\",\n \"templateNamespace\": \"whatsapp:hsm:it:infobip\",\n  \"templateData\":\t[\"Catalina\"],\n \"language\": \"es\"\n  }\n  }
+
+"{ \n \t \"scenarioKey\":\"FD90D1C5456A5E9D583333426591F5C9\", \n \t \"destinations\":[{ \n \t \t \"to\":{\n \t \t \t \"phoneNumber\":\"573196966720\" \n \t \t }\n \r  \t  }], \n  \t \"whatsApp\":{\n \t \t \"templateName\":\"welcome_multiple_languages\", \n \r  \t \"templateNamespace\":\"whatsapp:hsm:it:infobip\", \n \r  \t      }  \n}"
+
+{ 
+  "scenarioKey":"FD90D1C5456A5E9D583333426591F5C9",  
+  "destinations":[{ 
+  "to":{
+  "phoneNumber": "573196966720"}
+ }
+ 	], 
+  "whatsApp":{
+ "templateName": "welcome_multiple_languages",
+ "templateNamespace": "whatsapp:hsm:it:infobip",
+  "templateData":[	 "Catalina"],
+ "language": "es"
+  }
+  }
+  
+  
+  
+  {
+	"scenarioKey": "FD90D1C5456A5E9D583333426591F5C9",
+	"destinations": [{
+		"to": {
+			"phoneNumber": "573208455613"
+		}
+	}],
+	"whatsApp": {
+		 "templateName": "welcome_multiple_languages",
+         "templateNamespace": "whatsapp:hsm:it:infobip",
+         "templateData": ["Pilar"], 
+         "language": "es"
+
+	}
+}	
+  
